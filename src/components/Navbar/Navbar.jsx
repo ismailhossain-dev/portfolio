@@ -4,7 +4,7 @@ import { HiX, HiMenuAlt3 } from "react-icons/hi";
 
 const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
   return (
-    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 ">
+    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4  ">
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -14,11 +14,11 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
                    shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] rounded-full relative"
       >
         {/* Logo */}
-        <div className="text-2xl font-black tracking-tighter italic">
+        <a href="#" className="text-2xl font-black tracking-tighter italic">
           <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             SABBIR
           </span>
-        </div>
+        </a>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center space-x-1 bg-slate-200/50 dark:bg-slate-800/50 p-1 rounded-full border border-slate-300/30 dark:border-slate-700/30">

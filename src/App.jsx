@@ -7,6 +7,7 @@ import Experience from "./components/Experience/Experience";
 import Project from "./components/Project/Project";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import LoadingScreen from "./components/Hero/LoadingScreen/LoadingScreen.JSX";
 
 // Importing Components
 
@@ -17,7 +18,7 @@ function App() {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Skill", href: "#skill" },
+    { name: "Skills", href: "#skill" },
     { name: "Experience", href: "#experience" },
     { name: "Project", href: "#project" },
     { name: "Contact", href: "#contact" },
@@ -28,6 +29,32 @@ function App() {
     else document.documentElement.classList.remove("dark");
   }, [darkMode]);
 
+  //Loading work
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      // সরাসরি কল না করে একটি ছোট ডিলে দিন
+      setTimeout(() => {
+        setLoading(false);
+      }, 100);
+    };
+
+    // যদি পেজ আগে থেকেই লোড হয়ে থাকে
+    if (document.readyState === "complete") {
+      setTimeout(() => {
+        setLoading(false);
+      }, 100);
+    } else {
+      window.addEventListener("load", handleLoad);
+      // ক্লিনআপ ফাংশন
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
   return (
     <div className="selection:bg-blue-500 selection:text-white bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-500 font-sans scroll-smooth">
       <Navbar
