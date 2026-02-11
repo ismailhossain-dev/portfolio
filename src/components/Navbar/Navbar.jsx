@@ -16,7 +16,7 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
         {/* Logo */}
         <a href="#" className="text-2xl font-black tracking-tighter italic">
           <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            SABBIR
+            Md.Ismail
           </span>
         </a>
 

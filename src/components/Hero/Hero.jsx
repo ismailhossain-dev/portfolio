@@ -130,9 +130,9 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -right-6 md:right-0 bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-2xl z-20 border border-slate-100 dark:border-slate-700 hidden sm:block"
+              className="absolute -bottom-1 -right-6 md:right-0 bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-2xl z-20 border border-slate-100 dark:border-slate-700 hidden sm:block"
             >
-              <div className="text-center">
+              <div className="text-center z">
                 <span className="block text-3xl font-black text-blue-600 tracking-tighter">
                   06+
                 </span>

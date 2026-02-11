@@ -40,7 +40,7 @@ const LoadingScreen = () => {
             transition={{ duration: 0.8, ease: "circOut" }}
             className="text-3xl font-black tracking-tighter text-slate-900 dark:text-white uppercase italic"
           >
-            PORTFOLIO<span className="text-blue-600">.</span>
+            ISMAIL HOSSAIN<span className="text-blue-600">.</span>
           </motion.h2>
 
           <motion.div
