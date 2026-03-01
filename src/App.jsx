@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
-import Experience from "./components/Experience/Experience";
+
 import Project from "./components/Project/Project";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
@@ -18,8 +18,8 @@ function App() {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Skills", href: "#skill" },
-    { name: "Experience", href: "#experience" },
+    { name: "Skills", href: "#skills" },
+
     { name: "Project", href: "#project" },
     { name: "Contact", href: "#contact" },
   ];
@@ -34,20 +34,18 @@ function App() {
 
   useEffect(() => {
     const handleLoad = () => {
-      // সরাসরি কল না করে একটি ছোট ডিলে দিন
       setTimeout(() => {
         setLoading(false);
       }, 100);
     };
 
-    // যদি পেজ আগে থেকেই লোড হয়ে থাকে
     if (document.readyState === "complete") {
       setTimeout(() => {
         setLoading(false);
       }, 100);
     } else {
       window.addEventListener("load", handleLoad);
-      // ক্লিনআপ ফাংশন
+
       return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
@@ -68,7 +66,6 @@ function App() {
       />
       <Hero />
       <Skills />
-      <Experience />
       <Project />
       <Contact />
       <Footer navLinks={navLinks} />

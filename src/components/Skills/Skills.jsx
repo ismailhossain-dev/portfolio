@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BiLogoVisualStudio } from "react-icons/bi";
-
 import {
   SiReact,
   SiNextdotjs,
@@ -21,133 +20,100 @@ import {
   SiNetlify,
   SiEslint,
   SiPrettier,
-  SiNpm, // অনেক সময় SiNPM কাজ না করলে SiNpm কাজ করে
+  SiNpm,
   SiGooglechrome,
   SiAxios,
   SiReacthookform,
 } from "react-icons/si";
 import { TbBrandHtml5, TbBrandCss3 } from "react-icons/tb";
+import Container from "../Container";
 
-const SkillBadge = ({ name, icon: Icon, color, delay }) => (
+const ALL_SKILLS = [
+  { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-slate-900 dark:text-white" },
+  { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
+  { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
+  { name: "MongoDB", icon: SiMongodb, color: "text-[#47A248]" },
+  { name: "Express", icon: SiExpress, color: "text-slate-500" },
+  { name: "Tailwind", icon: SiTailwindcss, color: "text-[#06B6D4]" },
+  { name: "Firebase", icon: SiFirebase, color: "text-[#FFCA28]" },
+  { name: "Figma", icon: SiFigma, color: "text-[#F24E1E]" },
+  { name: "GitHub", icon: SiGithub, color: "text-slate-900 dark:text-white" },
+  { name: "TanStack", icon: SiReactquery, color: "text-[#FF4154]" },
+  { name: "Stripe", icon: SiStripe, color: "text-[#635BFF]" },
+  { name: "Redux", icon: SiReacthookform, color: "text-[#EC5990]" },
+  { name: "JWT", icon: SiJsonwebtokens, color: "text-[#D63AFF]" },
+  { name: "Vercel", icon: SiVercel, color: "text-slate-900 dark:text-white" },
+  { name: "Axios", icon: SiAxios, color: "text-[#5A29E4]" },
+  { name: "HTML5", icon: TbBrandHtml5, color: "text-[#E34F26]" },
+  { name: "CSS3", icon: TbBrandCss3, color: "text-[#1572B6]" },
+  { name: "VS Code", icon: BiLogoVisualStudio, color: "text-[#007ACC]" },
+  { name: "NPM", icon: SiNpm, color: "text-[#CB3837]" },
+];
+
+const SkillCard = ({ name, icon: Icon, color, index }) => (
   <motion.div
-    initial={{ opacity: 0, y: 15 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: delay * 0.05 }}
-    whileHover={{ y: -5 }}
-    className="relative group flex flex-col items-center"
+    transition={{ delay: index * 0.03, duration: 0.3 }}
+    whileHover={{ y: -4, backgroundColor: "rgba(59, 130, 246, 0.05)" }}
+    className="group flex items-center gap-3 p-3 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/60 rounded-xl transition-all hover:border-blue-500/30 shadow-sm hover:shadow-md"
   >
-    {/* Glow Background Effect */}
-    <div
-      className={`absolute -inset-3 bg-gradient-to-r ${color} opacity-0 group-hover:opacity-15 blur-xl transition-all duration-500 rounded-full`}
-    />
-
-    <div className="relative flex flex-col items-center gap-3">
-      <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm group-hover:shadow-xl group-hover:border-transparent transition-all duration-300">
-        <Icon
-          className={`text-2xl md:text-3xl transition-transform duration-300 group-hover:scale-110 ${color}`}
-        />
-      </div>
-      <span className="text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-        {name}
-      </span>
+    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800 group-hover:bg-white dark:group-hover:bg-slate-700 transition-colors">
+      <Icon className={`text-xl ${color} transition-transform group-hover:scale-110`} />
     </div>
+    <span className="text-[13px] font-semibold text-slate-700 dark:text-slate-300 tracking-tight">
+      {name}
+    </span>
   </motion.div>
 );
 
-const SkillCategory = ({ title, skills, colorGradient }) => (
-  <div className="mb-16 w-full">
-    <div className="flex items-center gap-4 mb-10">
-      <h3
-        className={`text-xs font-bold uppercase tracking-[0.2em] whitespace-nowrap px-4 py-1.5 rounded-lg bg-gradient-to-r ${colorGradient} text-white`}
-      >
-        {title}
-      </h3>
-      <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-800 opacity-50"></div>
-    </div>
-
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8 justify-items-center">
-      {skills.map((skill, index) => (
-        <SkillBadge key={skill.name} {...skill} delay={index} />
-      ))}
-    </div>
-  </div>
-);
-
 const Skills = () => {
-  const categories = {
-    proficient: [
-      { name: "React.js", icon: SiReact, color: "text-blue-400" },
-      { name: "JS ES6+", icon: SiJavascript, color: "text-yellow-400" },
-      { name: "HTML5", icon: TbBrandHtml5, color: "text-orange-500" },
-      { name: "CSS3", icon: TbBrandCss3, color: "text-blue-600" },
-      { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-400" },
-      { name: "React Router", icon: SiReactrouter, color: "text-red-500" },
-    ],
-    comfortable: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-slate-800 dark:text-white" },
-      { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
-      { name: "Express.js", icon: SiExpress, color: "text-slate-500" },
-      { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-      { name: "Firebase", icon: SiFirebase, color: "text-orange-400" },
-      { name: "JWT", icon: SiJsonwebtokens, color: "text-pink-500" },
-      { name: "TanStack Query", icon: SiReactquery, color: "text-red-400" },
-      { name: "Axios", icon: SiAxios, color: "text-indigo-500" },
-      { name: "Hook Form", icon: SiReacthookform, color: "text-pink-600" },
-      { name: "Stripe", icon: SiStripe, color: "text-indigo-600" },
-    ],
-    tools: [
-      { name: "VS Code", icon: BiLogoVisualStudio, color: "text-blue-500" },
-      { name: "GitHub", icon: SiGithub, color: "text-slate-900 dark:text-white" },
-      { name: "Vercel", icon: SiVercel, color: "text-black dark:text-white" },
-      { name: "Netlify", icon: SiNetlify, color: "text-cyan-500" },
-      { name: "Figma", icon: SiFigma, color: "text-purple-500" },
-      { name: "Chrome Dev", icon: SiGooglechrome, color: "text-yellow-500" },
-      { name: "NPM", icon: SiNpm, color: "text-red-600" },
-      { name: "ESLint", icon: SiEslint, color: "text-indigo-400" },
-      { name: "Prettier", icon: SiPrettier, color: "text-pink-400" },
-    ],
-  };
-
   return (
-    <section
-      id="skills"
-      className="relative py-24 px-6 bg-slate-50/50 dark:bg-slate-950 overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-20">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-blue-600 font-mono text-sm tracking-[0.3em] uppercase block mb-4"
-          >
-            Technical Stack
-          </motion.span>
-          <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter uppercase">
-            My Skills &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Expertise
-            </span>
-          </h2>
-        </div>
+    <Container>
+      <section
+        id="skills"
+        className="relative py-24 px-6 bg-white dark:bg-[#020617] transition-colors duration-500"
+      >
+        <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
+          <div className="mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-3 mb-4"
+            >
+              <span className="h-[2px] w-8 bg-blue-600 rounded-full" />
+              <span className="text-blue-600 dark:text-blue-400 font-mono text-[10px] font-bold tracking-[0.3em] uppercase">
+                Capabilities
+              </span>
+            </motion.div>
 
-        <SkillCategory
-          title="Proficient"
-          skills={categories.proficient}
-          colorGradient="from-blue-600 to-cyan-500"
-        />
-        <SkillCategory
-          title="Comfortable"
-          skills={categories.comfortable}
-          colorGradient="from-purple-600 to-pink-500"
-        />
-        <SkillCategory
-          title="Tools & Ecosystem"
-          skills={categories.tools}
-          colorGradient="from-emerald-500 to-teal-400"
-        />
-      </div>
-    </section>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter">
+              Modern Tech{" "}
+              <span className="text-slate-400 dark:text-slate-600 italic font-serif font-light">
+                Ecosystem
+              </span>
+            </h2>
+          </div>
+
+          {/* Unified Flex/Grid Layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {ALL_SKILLS.map((skill, index) => (
+              <SkillCard key={skill.name} {...skill} index={index} />
+            ))}
+          </div>
+
+          {/* Minimalist Bottom Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="mt-20 pt-8 border-t border-slate-100 dark:border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-6"
+          ></motion.div>
+        </div>
+      </section>
+    </Container>
   );
 };
 

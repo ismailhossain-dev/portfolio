@@ -8,37 +8,6 @@ const Footer = ({ navLinks }) => {
     <footer className="bg-white dark:bg-slate-950 pt-24 pb-10 border-t border-slate-200 dark:border-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section: Hire Me CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-between mb-20 p-8 md:p-12 rounded-[3rem] bg-gradient-to-br from-blue-600 to-purple-700 shadow-[0_20px_50px_rgba(37,_99,_235,_0.3)] text-white"
-        >
-          <div className="text-center md:text-left mb-8 md:mb-0">
-            <h3 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter uppercase italic">
-              Let's Build Something <span className="text-blue-200">Great.</span>
-            </h3>
-            <p className="text-blue-100 font-medium text-lg max-w-md">
-              Available for new projects and collaborations. Get in touch today!
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
-              className="group flex items-center justify-center gap-3 px-8 py-4 bg-white text-blue-600 rounded-2xl font-black uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl"
-            >
-              Hire Me <HiArrowRight className="group-hover:translate-x-2 transition-transform" />
-            </a>
-            {/* Download CV Option */}
-            <a
-              href="/resume.pdf" // Replace with your actual resume link
-              download
-              className="flex items-center justify-center gap-3 px-8 py-4 border-2 border-white/30 hover:border-white text-white rounded-2xl font-black uppercase tracking-widest transition-all"
-            >
-              Resume <HiDownload />
-            </a>
-          </div>
-        </motion.div>
 
         {/* Middle Section: Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">

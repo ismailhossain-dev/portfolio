@@ -1,151 +1,203 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useMemo } from "react";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { HiDownload, HiChatAlt2 } from "react-icons/hi";
-//etar madome meanStack write ta hoyteche
+import { FaGithub, FaLinkedinIn, FaFacebookF, FaTwitter, FaReact, FaNodeJs } from "react-icons/fa";
+import { SiMongodb, SiTailwindcss } from "react-icons/si";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import myImg from "../../assets/sabbir.jpg";
+import Container from "../Container";
+
+// Constants moved outside to prevent unnecessary re-renders
+const ROLES = ["MERN STACK DEVELOPER", "FRONTEND ENGINEER", "PROBLEM SOLVER"];
+
+const SOCIAL_LINKS = [
+  { icon: <FaGithub />, href: "#", label: "Github", color: "hover:text-[#333]" },
+  { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn", color: "hover:text-[#0077b5]" },
+  { icon: <FaFacebookF />, href: "#", label: "Facebook", color: "hover:text-[#1877f2]" },
+  { icon: <FaTwitter />, href: "#", label: "Twitter", color: "hover:text-[#1da1f2]" },
+];
 
 const Hero = () => {
-  // Typewriter effect setup
   const [text] = useTypewriter({
-    words: ["MERN STACK DEVELOPER.", "FRONTEND DEVELOPER.", "Problem Solver."],
+    words: ROLES,
     loop: true,
     delaySpeed: 2000,
+    typeSpeed: 70,
+    deleteSpeed: 50,
   });
 
+  // Mouse Tracking Logic
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 25, stiffness: 150 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouseX.set(e.clientX - 16);
+      mouseY.set(e.clientY - 16);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  };
+
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center px-6 md:px-16 pt-30 overflow-hidden bg-slate-50 dark:bg-slate-950 "
-    >
-      {/* Background Abstract Shapes */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+    <Container>
+      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-20 overflow-hidden bg-[#fafafa] dark:bg-[#020617] transition-colors duration-500 cursor-none">
+        {/* Custom Cursor */}
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-blue-500/10 rounded-full blur-[120px]"
+          className="fixed top-0 left-0 w-8 h-8 rounded-full border border-blue-500/50 pointer-events-none z-[9999] hidden md:block"
+          style={{ x: cursorX, y: cursorY }}
         />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, -90, 0],
-            opacity: [0.1, 0.3, 0.1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-[10%] -right-[10%] w-[35rem] h-[35rem] bg-purple-500/10 rounded-full blur-[150px]"
-        />
-      </div>
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full gap-16 max-w-7xl mx-auto">
-        {/* Left Content */}
+        {/* Background: Subtle Grid & Glow */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-[120px]" />
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="md:w-1/2 space-y-8 text-center md:text-left"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-16"
         >
-          {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </span>
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300">
-              Available for New Projects
-            </span>
-          </div>
-
-          {/* Headline with Typewriter */}
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-black leading-[1.1] tracking-tighter text-slate-900 dark:text-white">
-              I AM A <br />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-500 bg-clip-text text-transparent italic">
-                {text}
+          {/* Left Content */}
+          <div className="flex-1 space-y-6 text-center lg:text-left order-2 lg:order-1">
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/5 border border-blue-100 dark:border-blue-500/20"
+            >
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                Available for Hire
               </span>
-              <Cursor cursorColor="#3b82f6" />
-            </h1>
-          </div>
-
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium italic">
-            Hi, I'm <span className="text-slate-900 dark:text-white font-bold">Ismail Hossain</span>
-            . I work with the latest technologies to build web applications that are fast,
-            responsive, and user-friendly. I am passionate about learning new technologies and
-            building innovative solutions.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-5 justify-center md:justify-start pt-6">
-            <motion.a
-              href="/resume.pdf"
-              download
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-black font-black uppercase text-sm tracking-widest shadow-2xl transition-all"
-            >
-              Download CV <HiDownload size={20} />
-            </motion.a>
-
-            <motion.a
-              href="#contact"
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 text-blue-600 border-2 border-blue-600 dark:border-blue-500 font-black uppercase text-sm tracking-widest shadow-lg transition-all"
-            >
-              Let's Talk <HiChatAlt2 size={20} />
-            </motion.a>
-          </div>
-        </motion.div>
-
-        {/* Right Image Section */}
-        <motion.div
-          className="md:w-1/2 flex justify-center relative"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          {/* Decorative Ring */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[5rem] rotate-6 scale-105 blur-sm" />
-
-          <div className="relative group">
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-80 h-80 md:w-[32rem] md:h-[32rem] rounded-[5rem] bg-white dark:bg-slate-900 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] p-4 z-10 overflow-hidden border border-slate-100 dark:border-slate-800"
-            >
-              <div className="w-full h-full overflow-hidden rounded-[4rem] relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img
-                  src={myImg}
-                  alt="Sabbir Profile"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-              </div>
             </motion.div>
 
-            {/* Floating Badge */}
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-1 -right-6 md:right-0 bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-2xl z-20 border border-slate-100 dark:border-slate-700 hidden sm:block"
+            <motion.div variants={itemVariants} className="space-y-2">
+              <h2 className="text-lg md:text-xl font-medium text-slate-600 dark:text-slate-400">
+                Hello, I'm Ismail
+              </h2>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+                Expert in <br />
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl">
+                  {text}
+                </span>
+                <Cursor cursorStyle="|" />
+              </h1>
+            </motion.div>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             >
-              <div className="text-center z">
-                <span className="block text-3xl font-black text-blue-600 tracking-tighter">
-                  06+
+              I craft high-performance web applications using the
+              <span className="text-slate-900 dark:text-white font-semibold"> MERN Stack</span>.
+              Focused on building clean, scalable, and user-centric digital experiences.
+            </motion.p>
+
+            {/* Social Links - Responsive & Integrated */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center justify-center lg:justify-start gap-5 pt-2"
+            >
+              {SOCIAL_LINKS.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  className={`text-xl text-slate-400 transition-all duration-300 ${link.color} hover:-translate-y-1`}
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </motion.div>
+
+            {/* Action Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
+            >
+              <button className="group relative px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg">
+                <span className="relative z-10 flex items-center gap-2">
+                  Download CV{" "}
+                  <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
                 </span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                  Month Experience
-                </span>
-              </div>
+                <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
+              </button>
+              <button className="px-8 py-3.5 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all text-slate-700 dark:text-slate-300">
+                Let's Talk
+              </button>
             </motion.div>
           </div>
+
+          {/* Right Content: Image & Floating Elements */}
+          <motion.div
+            variants={itemVariants}
+            className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2"
+          >
+            <div className="relative">
+              {/* Tech Stack Bubbles (Senior Touch) */}
+              <TechBubble
+                icon={<FaReact className="text-blue-400" />}
+                className="top-0 -left-8"
+                delay={0}
+              />
+              <TechBubble
+                icon={<FaNodeJs className="text-green-500" />}
+                className="bottom-20 -left-12"
+                delay={1}
+              />
+              <TechBubble
+                icon={<SiMongodb className="text-green-600" />}
+                className="top-10 -right-8"
+                delay={2}
+              />
+              <TechBubble
+                icon={<SiTailwindcss className="text-cyan-400" />}
+                className="bottom-10 -right-4"
+                delay={1.5}
+              />
+
+              {/* Main Image Container */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] p-3 border border-slate-200 dark:border-slate-800 rounded-[3rem] rotate-3 hover:rotate-0 transition-transform duration-500 bg-white dark:bg-slate-900 shadow-2xl">
+                <div className="w-full h-full overflow-hidden rounded-[2.5rem] bg-slate-100 dark:bg-slate-800">
+                  <img
+                    src={myImg}
+                    alt="Ismail Portfolio"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 hover:scale-100"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </section>
+    </Container>
   );
 };
+
+// Sub-component for Floating Icons
+const TechBubble = ({ icon, className, delay }) => (
+  <motion.div
+    animate={{ y: [0, -15, 0] }}
+    transition={{ duration: 4, repeat: Infinity, delay }}
+    className={`absolute z-20 p-3 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 text-2xl hidden sm:block ${className}`}
+  >
+    {icon}
+  </motion.div>
+);
 
 export default Hero;
