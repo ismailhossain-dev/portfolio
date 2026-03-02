@@ -8,6 +8,8 @@ import Project from "./components/Project/Project";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/Hero/LoadingScreen/LoadingScreen.JSX";
+import AboutMe from "./components/About/AboutMe";
+import Qualification from "./components/Qualification/Qualification";
 
 // Importing Components
 
@@ -17,8 +19,9 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Skills", href: "#skills" },
+    { name: "Home", href: "#" },
+    { name: "Tech Stack", href: "#skills" },
+    { name: "Qualification", href: "#qualification" },
 
     { name: "Project", href: "#project" },
     { name: "Contact", href: "#contact" },
@@ -64,8 +67,12 @@ function App() {
         setDarkMode={setDarkMode}
         navLinks={navLinks}
       />
+
       <Hero />
+      <AboutMe />
       <Skills />
+
+      <Qualification />
       <Project />
       <Contact />
       <Footer navLinks={navLinks} />

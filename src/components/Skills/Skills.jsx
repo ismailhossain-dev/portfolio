@@ -79,21 +79,10 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
           <div className="mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3 mb-4"
-            >
-              <span className="h-[2px] w-8 bg-blue-600 rounded-full" />
-              <span className="text-blue-600 dark:text-blue-400 font-mono text-[10px] font-bold tracking-[0.3em] uppercase">
-                Capabilities
-              </span>
-            </motion.div>
-
             <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter">
               Modern Tech{" "}
               <span className="text-slate-400 dark:text-slate-600 italic font-serif font-light">
-                Ecosystem
+                Skills
               </span>
             </h2>
           </div>

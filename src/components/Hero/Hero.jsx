@@ -4,17 +4,31 @@ import { HiDownload, HiChatAlt2 } from "react-icons/hi";
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaTwitter, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
-import myImg from "../../assets/sabbir.jpg";
+import myImg from "../../assets/myImage.jpg";
 import Container from "../Container";
 
 // Constants moved outside to prevent unnecessary re-renders
 const ROLES = ["MERN STACK DEVELOPER", "FRONTEND ENGINEER", "PROBLEM SOLVER"];
 
 const SOCIAL_LINKS = [
-  { icon: <FaGithub />, href: "#", label: "Github", color: "hover:text-[#333]" },
-  { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn", color: "hover:text-[#0077b5]" },
-  { icon: <FaFacebookF />, href: "#", label: "Facebook", color: "hover:text-[#1877f2]" },
-  { icon: <FaTwitter />, href: "#", label: "Twitter", color: "hover:text-[#1da1f2]" },
+  {
+    icon: <FaGithub />,
+    href: "https://github.com/ismailhossain-dev",
+    label: "Github",
+    color: "hover:text-[#333]",
+  },
+  {
+    icon: <FaLinkedinIn />,
+    href: "https://www.linkedin.com/in/mohammad-ismail-hossain-475183396",
+    label: "LinkedIn",
+    color: "hover:text-[#0077b5]",
+  },
+  {
+    icon: <FaFacebookF />,
+    href: "https://web.facebook.com/md.sabbir.926093",
+    label: "Facebook",
+    color: "hover:text-[#1877f2]",
+  },
 ];
 
 const Hero = () => {
@@ -55,7 +69,7 @@ const Hero = () => {
 
   return (
     <Container>
-      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-20 overflow-hidden bg-[#fafafa] dark:bg-[#020617] transition-colors duration-500 cursor-none">
+      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-30 overflow-hidden bg-[#fafafa] dark:bg-[#020617] transition-colors duration-500 cursor-none ">
         {/* Custom Cursor */}
         <motion.div
           className="fixed top-0 left-0 w-8 h-8 rounded-full border border-blue-500/50 pointer-events-none z-[9999] hidden md:block"
@@ -81,7 +95,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/5 border border-blue-100 dark:border-blue-500/20"
             >
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 ">
                 Available for Hire
               </span>
             </motion.div>

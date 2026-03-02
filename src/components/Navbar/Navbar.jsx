@@ -1,99 +1,155 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiX, HiMenuAlt3 } from "react-icons/hi";
+import { Home, User, GraduationCap, MessageSquare, Send } from "lucide-react";
 import Container from "../Container";
+import { BiCodeAlt } from "react-icons/bi";
 
 const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
+  // Icon helper function
+  const getIcon = (name) => {
+    switch (name.toLowerCase()) {
+      case "#":
+        return <Home size={16} />;
+      case "about":
+        return <User size={16} />;
+      case "skills":
+        return <BiCodeAlt className="text-blue-black" size={16} />;
+      case "qualification":
+        return <GraduationCap size={16} />;
+      case "projects":
+        return <Code2 size={16} />;
+      case "contact":
+        return <MessageSquare size={16} />;
+      default:
+        return null;
+    }
+  };
+
+  // Intersection Observer for Scroll-spy logic
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const currentLink = navLinks.find((link) => link.href === `#${id}`);
+          if (currentLink) setActive(currentLink.name);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    navLinks.forEach((link) => {
+      const sectionId = link.href.replace("#", "");
+      const element = document.getElementById(sectionId);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [navLinks, setActive]);
+
   return (
-    <Container>
-      <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4  ">
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex justify-between items-center w-full max-w-5xl px-6 py-2 
-                   bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-800/50
-                   shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] rounded-full relative"
-        >
-          {/* Logo */}
-          <a href="#" className="text-2xl font-black tracking-tighter italic">
-            <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Md.Ismail
-            </span>
-          </a>
+    <header className="fixed top-0 left-0 right-0 z-[100] w-full">
+      <Container>
+        {/* Navbar Wrapper with Margin Bottom (via padding-top for the whole container if needed) */}
+        <div className="flex justify-center px-4 py-6">
+          <motion.div
+            initial={{ y: -25, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="flex justify-between items-center w-full max-w-6xl px-5 py-2.5 
+                       bg-slate-950/80 backdrop-blur-2xl border border-white/10
+                       shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-full relative"
+          >
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(79,70,229,0.4)]">
+                S
+              </div>
+              <span className="text-xl font-bold tracking-tighter text-white hidden sm:block uppercase">
+                Sabbir<span className="text-indigo-500">.Dev</span>
+              </span>
+            </a>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center space-x-1 bg-slate-200/50 dark:bg-slate-800/50 p-1 rounded-full border border-slate-300/30 dark:border-slate-700/30">
-            {navLinks.map((link) => (
-              <li key={link.name} className="relative">
-                <a
-                  href={link.href}
-                  onClick={() => setActive(link.name)}
-                  className={`px-5 py-2 text-sm font-bold transition-all duration-200 rounded-full block relative z-10 ${
-                    active === link.name
-                      ? "text-white"
-                      : "text-slate-600 dark:text-slate-400 hover:text-blue-500"
-                  }`}
-                >
-                  {link.name}
-                  {active === link.name && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 bg-blue-600 rounded-full -z-10 shadow-md"
-                      transition={{ type: "tween", duration: 0.3 }}
-                    />
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
+            {/* Desktop Navigation */}
+            <ul className="hidden lg:flex items-center bg-white/5 p-1 rounded-full border border-white/5 gap-1">
+              {navLinks.map((link) => (
+                <li key={link.name} className="relative">
+                  <a
+                    href={link.href}
+                    className={`px-5 py-2 text-[12px] font-bold tracking-wide transition-all duration-300 rounded-full flex items-center gap-2 relative z-10 ${
+                      active === link.name ? "text-white" : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <span className={`${active === link.name ? "text-white" : "text-indigo-500"}`}>
+                      {getIcon(link.name)}
+                    </span>
+                    {link.name}
 
-          {/* Hire Me & Mobile Toggle */}
-          <div className="flex items-center gap-3">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-black shadow-lg shadow-blue-500/20 transition-colors"
-            >
-              Hire Me
-            </motion.button>
+                    {active === link.name && (
+                      <motion.div
+                        layoutId="navTab"
+                        className="absolute inset-0 bg-indigo-600 rounded-full -z-10 shadow-[0_0_15px_rgba(79,70,229,0.5)]"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-            <div className="md:hidden flex items-center">
+            {/* Right Side Action: Contact Me */}
+            <div className="flex items-center gap-4">
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="hidden md:flex items-center gap-2 bg-indigo-600 text-white px-6 py-2.5 rounded-full text-[12px] font-black uppercase tracking-wider hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/20"
+              >
+                Contact Me <Send size={14} />
+              </motion.a>
+
+              {/* Mobile Toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-slate-800 dark:text-white text-2xl p-1"
+                className="lg:hidden text-white text-3xl transition-transform active:scale-75"
               >
-                {isOpen ? <HiX /> : <HiMenuAlt3 />}
+                {isOpen ? <HiX className="text-indigo-500" /> : <HiMenuAlt3 />}
               </button>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-20 left-4 right-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl p-6 rounded-[2rem] shadow-2xl border border-white/20 dark:border-slate-800 md:hidden"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="absolute top-24 left-4 right-4 bg-slate-900/98 backdrop-blur-3xl p-6 rounded-[2.5rem] shadow-2xl border border-white/10 lg:hidden overflow-hidden"
             >
-              <ul className="flex flex-col space-y-2">
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-600/20 blur-[80px]"></div>
+
+              <ul className="flex flex-col gap-2 relative z-10">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      onClick={() => {
-                        setActive(link.name);
-                        setIsOpen(false);
-                      }}
-                      className={`w-full text-center block py-3 rounded-xl text-lg font-bold transition-all ${
+                      onClick={() => setIsOpen(false)}
+                      className={`w-full flex items-center justify-center gap-3 py-4 rounded-2xl text-base font-black tracking-widest transition-all ${
                         active === link.name
-                          ? "bg-blue-600 text-white shadow-md"
-                          : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                          ? "bg-indigo-600 text-white shadow-xl shadow-indigo-600/20"
+                          : "text-slate-400 hover:text-white hover:bg-white/5"
                       }`}
                     >
+                      {getIcon(link.name)}
                       {link.name}
                     </a>
                   </li>
@@ -102,8 +158,8 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
-    </Container>
+      </Container>
+    </header>
   );
 };
 

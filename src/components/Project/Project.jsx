@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { HiExternalLink, HiCode, HiEye } from "react-icons/hi"; // আইকন আপডেট
 import { FaGithub } from "react-icons/fa"; // গিথুব আইকনের জন্য
 import project1 from "../../assets/bookCourier.png";
-import project2 from "../../assets/project-2.jpeg";
-import project3 from "../../assets/project-3.jpeg";
+import project2 from "../../assets/food.png";
+import project3 from "../../assets/project-3.png";
 
 import Container from "../Container";
 
@@ -14,33 +14,34 @@ const Project = () => {
       id: 1,
       title: "BookCourier E-commerce",
       description:
-        "একটি ফাস্ট এবং রেসপন্সিভ ই-কমার্স প্ল্যাটফর্ম যা ইউজার ইন্টারফেসের ওপর ফোকাস করা।",
+        "A fast and responsive e-commerce platform with a strong focus on user interface (UI)",
       image: project1,
       tags: ["React", "Tailwind", "NodeJS"],
       backendLink: "https://github.com/ismailhossain-dev/backend.git",
       frontendLink: "https://github.com/ismailhossain-dev/frontend.git",
-      liveLink: "#",
-    },
-    {
-      id: 2,
-      title: "Real Estate Portal",
-      description: "আধুনিক প্রপার্টি ম্যানেজমেন্ট সিস্টেম যেখানে ইউজাররা সহজে ঘরবাড়ি খুঁজে পাবে।",
-      image: project2,
-      tags: ["NextJS", "Firebase", "Tailwind"],
-      backendLink: "#",
-      frontendLink: "#",
-      liveLink: "#",
+      liveLink: "https://bookcourier-project.netlify.app",
     },
     {
       id: 3,
-      title: "Creative Portfolio",
+      title: "FoodMood – Premium Food Delivery",
       description:
-        "ব্যক্তিগত ব্র্যান্ডিংয়ের জন্য তৈরি একটি এনিমেটেড এবং ক্লিন পোর্টফোলিও ওয়েবসাইট।",
+        "A fast and responsive food ordering platform designed for a seamless user experience. It features a modern UI, dynamic menu categories, and an optimized checkout flow for food enthusiasts.",
+      image: project2,
+      tags: ["React", "Node.js", "Tailwind"],
+      backendLink: "https://github.com/ismailhossain-dev/assignment-10-server-project.git",
+      frontendLink: "https://github.com/ismailhossain-dev/assignment-10-client-local-food.git",
+      liveLink: "https://assignment-10-food-lover.netlify.app",
+    },
+    {
+      id: 2,
+      title: "GameVault",
+      description:
+        "An immersive and high-performance gaming platform designed for enthusiasts. Featuring a dark-themed aesthetic, interactive game cards, and a fully responsive layout optimized for a seamless gaming experience.l",
       image: project3,
-      tags: ["React", "Framer Motion", "Tailwind"],
-      backendLink: "#",
-      frontendLink: "#",
-      liveLink: "#",
+      tags: ["React", "Firebase", "Tailwind"],
+
+      frontendLink: "https://github.com/ismailhossain-dev/Assignment-9.git",
+      liveLink: "https://assingment-9.netlify.app",
     },
   ];
 
@@ -59,9 +60,8 @@ const Project = () => {
             className="text-center mb-20"
           >
             <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-slate-900 dark:text-white leading-none">
-              Featured{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Work
+                Project
               </span>
             </h2>
             <div className="w-24 h-2 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
