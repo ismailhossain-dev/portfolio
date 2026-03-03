@@ -2,8 +2,14 @@ import React from "react";
 import { Award, Headphones, Download, ArrowRight, Sparkles, Code2 } from "lucide-react";
 import { motion } from "framer-motion"; // Scroll animation er jonno
 import sabbirImage from "../../assets/sabbir.jpg";
+import { HiDownload } from "react-icons/hi";
 
 const AboutMe = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  };
+
   return (
     <section
       id="about"
@@ -124,21 +130,33 @@ const AboutMe = () => {
           </motion.div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-5">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-all shadow-[0_10px_30px_rgba(79,70,229,0.3)] group"
-            >
-              Download Resume
-              <Download size={20} className="group-hover:translate-y-1 transition-transform" />
-            </motion.button>
 
+          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
             <motion.a
+              href="/resume.pdf"
+              download="Sabbir_Resume.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative w-full sm:w-auto px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg flex items-center justify-center"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Download CV{" "}
+                <HiDownload
+                  className="group-hover:translate-y-0.5 transition-transform"
+                  size={18}
+                />
+              </span>
+
+              {/* Blue Hover Slide Up Effect */}
+              <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
+            </motion.a>
+
+            {/* Let's Talk Button (আগের স্টাইল) */}
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="#contact"
-              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-slate-800/40 hover:bg-slate-800 border border-white/10 hover:border-indigo-500/40 text-white px-10 py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-all active:scale-95 group"
+              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-slate-800/40 hover:bg-slate-800 border border-white/10 hover:border-indigo-500/40 text-white px-10 py-3.5 rounded-xl font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-all group"
             >
               Let's Talk
               <ArrowRight

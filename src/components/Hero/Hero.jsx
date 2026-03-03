@@ -147,13 +147,15 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
             >
-              <button className="group relative px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg">
-                <span className="relative z-10 flex items-center gap-2">
-                  Download CV{" "}
-                  <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
-              </button>
+              <a href="/resume.pdf" download="Sabbir_Resume.pdf">
+                <button className="group relative px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Download CV{" "}
+                    <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
+                </button>
+              </a>
               <button className="px-8 py-3.5 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all text-slate-700 dark:text-slate-300">
                 <a href="contact">Let's Talk</a>
               </button>
