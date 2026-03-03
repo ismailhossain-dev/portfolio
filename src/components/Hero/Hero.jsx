@@ -69,7 +69,10 @@ const Hero = () => {
 
   return (
     <Container>
-      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-30 overflow-hidden bg-[#fafafa] dark:bg-[#020617] transition-colors duration-500 cursor-none ">
+      <section
+        className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-30 overflow-hidden bg-[#fafafa] dark:bg-[#020617] transition-colors duration-500 cursor-none  "
+        id="#"
+      >
         {/* Custom Cursor */}
         <motion.div
           className="fixed top-0 left-0 w-8 h-8 rounded-full border border-blue-500/50 pointer-events-none z-[9999] hidden md:block"
@@ -152,7 +155,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
               </button>
               <button className="px-8 py-3.5 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all text-slate-700 dark:text-slate-300">
-                Let's Talk
+                <a href="contact">Let's Talk</a>
               </button>
             </motion.div>
           </div>

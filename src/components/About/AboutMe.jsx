@@ -21,9 +21,6 @@ const AboutMe = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16 md:mb-24"
       >
-        <span className="flex items-center justify-center gap-2 text-indigo-400 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-4">
-          <Sparkles size={14} className="animate-pulse" /> Discover
-        </span>
         <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase">
           About <span className="text-indigo-500">Me</span>
         </h2>

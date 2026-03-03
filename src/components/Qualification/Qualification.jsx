@@ -18,13 +18,13 @@ const Qualification = () => {
     },
     {
       title: "Junior School (Class 8)",
-      institute: "Your School Name",
+      institute: "Upazila Administration School & College",
       duration: "2018 - 2020",
       desc: "Completed Junior School Certificate (JSC) and developed a foundation in science and math.",
     },
     {
       title: "Primary School (Class 5)",
-      institute: "Baghaichhari Government High School",
+      institute: "Baghaichhari Government Primary School",
       duration: "2013 - 2017",
       desc: "Early education journey and completed Primary School Certificate (PSC).",
     },
