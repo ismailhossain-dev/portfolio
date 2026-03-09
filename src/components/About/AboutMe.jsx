@@ -69,7 +69,7 @@ const AboutMe = () => {
               <div>
                 <h3 className="text-white font-bold text-lg tracking-wide">Experience</h3>
                 <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">
-                  7+ Months Active
+                  6+ Months Active
                 </p>
               </div>
             </motion.div>
@@ -108,7 +108,7 @@ const AboutMe = () => {
                 with hands-on experience in building modern and responsive web applications. I
                 specialize in{" "}
                 <span className="text-indigo-400 font-bold italic tracking-wide">
-                  React.js, Node.js, Express.js, and MongoDB
+                  React.js,Next.js, Node.js, Express.js, and MongoDB
                 </span>
                 .
               </p>

@@ -31,7 +31,10 @@ const Qualification = () => {
   ];
 
   return (
-    <section id="qualification" className="py-20 px-4 md:py-32 relative overflow-hidden">
+    <section
+      id="qualification"
+      className="py-20 px-4 md:py-32 relative overflow-hidden bg-[#020617] bg-[radial-gradient(circle_at_50%_50%,#0f172a_0%,#020617_100%)]"
+    >
       {/* Background Glows */}
       <div className="absolute top-1/3 -left-24 w-80 h-80 bg-indigo-600/10 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-1/3 -right-24 w-80 h-80 bg-purple-600/10 rounded-full blur-[120px]"></div>

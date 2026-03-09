@@ -1,11 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { HiExternalLink, HiCode, HiEye } from "react-icons/hi"; // আইকন আপডেট
-import { FaGithub } from "react-icons/fa"; // গিথুব আইকনের জন্য
+import { HiDownload, HiEye, HiArrowRight, HiCode } from "react-icons/hi";
+import { FaGithub } from "react-icons/fa";
 import project1 from "../../assets/bookCourier.png";
 import project2 from "../../assets/food.png";
 import project3 from "../../assets/project-3.png";
-
 import Container from "../Container";
 
 const Project = () => {
@@ -14,7 +13,7 @@ const Project = () => {
       id: 1,
       title: "BookCourier E-commerce",
       description:
-        "A fast and responsive e-commerce platform with a strong focus on user interface (UI)",
+        "A fast and responsive e-commerce platform with a focus on seamless UI/UX and efficient product delivery management.",
       image: project1,
       tags: ["React", "Tailwind", "NodeJS"],
       backendLink: "https://github.com/ismailhossain-dev/backend.git",
@@ -22,10 +21,10 @@ const Project = () => {
       liveLink: "https://bookcourier-project.netlify.app",
     },
     {
-      id: 3,
-      title: "FoodMood – Premium Food Delivery",
+      id: 2,
+      title: "FoodMood – Premium Food",
       description:
-        "A fast and responsive food ordering platform designed for a seamless user experience. It features a modern UI, dynamic menu categories, and an optimized checkout flow for food enthusiasts.",
+        "A premium food delivery experience featuring dynamic menu categories and optimized checkout flow for enthusiasts.",
       image: project2,
       tags: ["React", "Node.js", "Tailwind"],
       backendLink: "https://github.com/ismailhossain-dev/assignment-10-server-project.git",
@@ -33,131 +32,137 @@ const Project = () => {
       liveLink: "https://assignment-10-food-lover.netlify.app",
     },
     {
-      id: 2,
-      title: "GameVault",
+      id: 3,
+      title: "GameVault Platform",
       description:
-        "An immersive and high-performance gaming platform designed for enthusiasts. Featuring a dark-themed aesthetic, interactive game cards, and a fully responsive layout optimized for a seamless gaming experience.l",
+        "An immersive gaming platform with a dark-themed aesthetic, interactive cards, and high-performance layouts.",
       image: project3,
       tags: ["React", "Firebase", "Tailwind"],
-
       frontendLink: "https://github.com/ismailhossain-dev/Assignment-9.git",
       liveLink: "https://assingment-9.netlify.app",
     },
   ];
 
   return (
-    <Container>
-      <section
-        id="project"
-        className="relative py-32 px-6 bg-white dark:bg-slate-950 overflow-hidden"
-      >
-        <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-slate-900 dark:text-white leading-none">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Project
-              </span>
-            </h2>
-            <div className="w-24 h-2 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-          </motion.div>
+    <div className="py-24 relative overflow-hidden bg-[#020617]">
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px]" />
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projectsData.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -15 }}
-                className="group relative bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl transition-all"
-              >
-                {/* Image Section */}
-                <div className="relative h-72 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+      <Container>
+        <section id="project" className="relative z-10 px-4">
+          <div className="max-w-7xl mx-auto">
+            {/* Header Section - Matches Skills Section */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+              <div className="space-y-4">
+                <h3 className="text-blue-500 font-mono tracking-tighter text-sm uppercase">
+                  Selected Works
+                </h3>
+                <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+                  Featured <span className="text-slate-500">Projects</span>
+                </h2>
+              </div>
+              <p className="text-slate-400 max-w-sm text-sm md:text-base leading-relaxed border-l border-slate-800 pl-6">
+                A collection of web applications built with modern tools, focused on solving
+                real-world problems.
+              </p>
+            </div>
 
-                  {/* Overlay with 3 specific buttons */}
-                  <div className="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm">
-                    {/* Live Link Button */}
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-lg w-48 justify-center font-bold text-sm"
-                    >
-                      <HiEye size={20} /> Live Preview
-                    </a>
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projectsData.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="group flex flex-col bg-slate-900/40 border border-slate-800/50 rounded-3xl overflow-hidden backdrop-blur-sm hover:bg-slate-800/40 transition-all duration-500"
+                >
+                  {/* Image Container with Custom Overlay */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
 
-                    {/* Frontend Github Link */}
-                    <a
-                      href={project.frontendLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-all shadow-lg border border-slate-600 w-48 justify-center font-bold text-sm"
-                    >
-                      <FaGithub size={18} /> Frontend Code
-                    </a>
-
-                    {/* Backend Github Link */}
-                    <a
-                      href={project.backendLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-all shadow-lg border border-slate-600 w-48 justify-center font-bold text-sm"
-                    >
-                      <FaGithub size={18} /> Backend Code
-                    </a>
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="p-8">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-[10px] font-black rounded-full uppercase tracking-widest"
+                    {/* Dark Overlay on Hover */}
+                    <div className="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-[2px]">
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all text-sm font-bold shadow-lg shadow-blue-900/20"
                       >
-                        {tag}
-                      </span>
-                    ))}
+                        <HiEye size={18} /> Live Demo
+                      </a>
+                      <div className="flex gap-2">
+                        <a
+                          href={project.frontendLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-2.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all border border-slate-700 shadow-xl"
+                          title="Frontend Code"
+                        >
+                          <FaGithub size={20} />
+                        </a>
+                        {project.backendLink && (
+                          <a
+                            href={project.backendLink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="p-2.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all border border-slate-700 shadow-xl"
+                            title="Backend Code"
+                          >
+                            <HiCode size={20} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
-                  <h3 className="text-2xl font-black mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors uppercase italic tracking-tighter">
-                    {project.title}
-                  </h3>
+                  {/* Content Area */}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded-lg uppercase tracking-widest border border-blue-500/10"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 font-medium italic">
-                    {project.description}
-                  </p>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                      {project.title}
+                    </h3>
 
-                  <div className="flex justify-between items-center">
-                    <a
-                      href={project.liveLink}
-                      className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-black uppercase text-xs tracking-[0.2em] group/link"
-                    >
-                      Explore Case Study{" "}
-                      <span className="group-hover:translate-x-2 transition-transform">→</span>
-                    </a>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                      {project.description}
+                    </p>
+
+                    <div className="pt-4 border-t border-slate-800/50">
+                      <a
+                        href={project.liveLink}
+                        className="inline-flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest group/link hover:text-blue-400 transition-colors"
+                      >
+                        View Project Detail
+                        <HiArrowRight className="group-hover/link:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Accent */}
+            <div className="mt-20 w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
           </div>
-        </div>
-      </section>
-    </Container>
+        </section>
+      </Container>
+    </div>
   );
 };
 

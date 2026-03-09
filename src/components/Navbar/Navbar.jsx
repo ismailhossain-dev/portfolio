@@ -7,113 +7,101 @@ import Container from "../Container";
 
 const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
   const icons = {
-    home: <Home size={18} />,
-    about: <User size={18} />,
-    skills: <BiCodeAlt size={18} />,
-    qualification: <GraduationCap size={18} />,
-    projects: <Code2 size={18} />,
-    contact: <MessageSquare size={18} />,
+    home: <Home size={16} />,
+    about: <User size={16} />,
+    skills: <BiCodeAlt size={16} />,
+    qualification: <GraduationCap size={16} />,
+    projects: <Code2 size={16} />,
+    contact: <MessageSquare size={16} />,
   };
 
   useEffect(() => {
-    // ১. Intersection Observer Logic
     const observerOptions = {
       root: null,
-      // rootMargin কিছুটা লুজ করা হয়েছে যাতে সব ডিভাইসে কাজ করে
-      rootMargin: "-20% 0px -60% 0px",
-      threshold: [0, 0.1],
+      rootMargin: "-30% 0px -70% 0px", // Improved sensitivity
+      threshold: 0,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
-        // যদি ইউজার ম্যানুয়ালি স্ক্রল করে এবং সেকশনটি স্ক্রিনে আসে
         if (entry.isIntersecting) {
           const id = entry.target.id;
           const currentLink = navLinks.find(
             (link) => link.href.replace("#", "").toLowerCase() === id.toLowerCase(),
           );
-          if (currentLink) {
-            setActive(currentLink.name);
-          }
+          if (currentLink) setActive(currentLink.name);
         }
       });
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-
     navLinks.forEach((link) => {
-      const sectionId = link.href.replace("#", "");
-      const element = document.getElementById(sectionId);
+      const element = document.getElementById(link.href.replace("#", ""));
       if (element) observer.observe(element);
     });
 
-    // ২. স্পেশাল স্ক্রল লিসেনার (ফুটার থেকে হোমে আসার সমস্যার জন্য)
     const handleScroll = () => {
-      // যদি ইউজার একদম উপরে চলে আসে (Home Section)
-      if (window.scrollY < 100) {
-        setActive("Home");
-      }
+      if (window.scrollY < 80) setActive("Home");
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
   }, [navLinks, setActive]);
 
-  // ক্লিক হ্যান্ডলার
   const handleNavLinkClick = (name) => {
     setActive(name);
     setIsOpen(false);
   };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] w-full">
       <Container>
-        <div className="flex justify-center px-4 py-6">
-          <motion.div
-            initial={{ y: -25, opacity: 0 }}
+        <div className="flex justify-center px-4 py-8 md:py-10">
+          <motion.nav
+            initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="flex justify-between items-center w-full max-w-6xl px-5 py-2.5 
-                       bg-slate-950/80 backdrop-blur-2xl border border-white/10
-                       shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-full relative"
+            className="flex justify-between items-center w-full max-w-5xl px-6 py-2.5 
+                       bg-slate-950/40 backdrop-blur-md border border-slate-800/50
+                       shadow-2xl rounded-full relative"
           >
-            {/* Logo */}
+            {/* Brand Logo */}
             <a
               href="#home"
               onClick={() => handleNavLinkClick("Home")}
               className="flex items-center gap-2 group"
             >
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white transition-all group-hover:bg-blue-500 shadow-lg shadow-blue-900/20">
                 S
               </div>
-              <span className="text-xl font-bold tracking-tighter text-white hidden sm:block uppercase">
-                Sabbir<span className="text-indigo-500">.Dev</span>
+              <span className="text-lg font-bold tracking-tight text-white hidden sm:block">
+                ISMAIL<span className="text-blue-500">.</span>
               </span>
             </a>
 
-            {/* Desktop Nav */}
-            <ul className="hidden lg:flex items-center bg-white/5 p-1 rounded-full border border-white/5 gap-1">
+            {/* Desktop Navigation */}
+            <ul className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <li key={link.name} className="relative">
                   <a
                     href={link.href}
                     onClick={() => handleNavLinkClick(link.name)}
-                    className={`px-5 py-2 text-[13px] font-semibold tracking-wide transition-all duration-300 rounded-full flex items-center gap-2 relative z-10 ${
-                      active === link.name ? "text-white" : "text-slate-400 hover:text-white"
+                    className={`px-4 py-2 text-[12px] uppercase tracking-widest font-bold transition-all duration-300 rounded-full flex items-center gap-2 relative z-10 ${
+                      active === link.name ? "text-white" : "text-slate-400 hover:text-slate-200"
                     }`}
                   >
-                    <span className="transition-colors duration-300">
-                      {icons[link.name.toLowerCase()] || <Layers size={18} />}
+                    <span className="opacity-70 group-hover:opacity-100">
+                      {icons[link.name.toLowerCase()] || <Layers size={16} />}
                     </span>
                     {link.name}
 
                     {active === link.name && (
                       <motion.div
                         layoutId="navTab"
-                        className="absolute inset-0 bg-indigo-600 rounded-full -z-[1]"
-                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        className="absolute inset-0 bg-blue-600/10 border border-blue-500/20 rounded-full -z-[1]"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
                   </a>
@@ -121,47 +109,48 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
               ))}
             </ul>
 
-            {/* Right Side */}
+            {/* CTA Button */}
             <div className="flex items-center gap-4">
               <motion.a
                 href="#contact"
                 onClick={() => handleNavLinkClick("Contact")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="hidden md:flex items-center gap-2 bg-indigo-600 text-white px-6 py-2.5 rounded-full text-[12px] font-black uppercase tracking-wider hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-500/20"
+                className="hidden md:flex items-center gap-2 bg-white text-black px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-blue-50 transition-all shadow-xl"
               >
-                Contact Me <Send size={14} />
+                Hire Me
               </motion.a>
 
+              {/* Mobile Toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden text-white text-3xl focus:outline-none"
+                className="lg:hidden text-white p-2 hover:bg-white/5 rounded-full transition-colors"
               >
-                {isOpen ? <HiX /> : <HiMenuAlt3 />}
+                {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
               </button>
             </div>
-          </motion.div>
+          </motion.nav>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Sidebar-style Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="absolute top-24 left-4 right-4 bg-slate-900/95 backdrop-blur-xl p-6 rounded-[2rem] shadow-2xl border border-white/10 lg:hidden"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              className="fixed top-28 left-6 right-6 bg-slate-900/95 backdrop-blur-2xl p-8 rounded-[2.5rem] shadow-3xl border border-slate-800 lg:hidden z-[99]"
             >
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
                       onClick={() => handleNavLinkClick(link.name)}
-                      className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-base font-bold transition-all ${
+                      className={`w-full flex items-center gap-5 px-6 py-4 rounded-2xl text-sm font-bold uppercase tracking-widest transition-all ${
                         active === link.name
-                          ? "bg-indigo-600 text-white"
-                          : "text-slate-400 hover:bg-white/5"
+                          ? "bg-blue-600 text-white shadow-lg shadow-blue-900/30"
+                          : "text-slate-400 hover:bg-white/5 hover:text-white"
                       }`}
                     >
                       {icons[link.name.toLowerCase()] || <Layers size={18} />}
