@@ -6,7 +6,7 @@ import { SiMongodb, SiTailwindcss } from "react-icons/si";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import myImg from "../../assets/myImage.jpg";
 import Container from "../Container";
-import resume from "../../assets/Resume-Mohammad-Ismail Hossain.pdf";
+import resume from "../../assets/Resume-Mohammad-Ismail-Hossain.pdf";
 
 // Constants moved outside to prevent unnecessary re-renders
 const ROLES = ["MERN STACK DEVELOPER", "FRONTEND ENGINEER", "PROBLEM SOLVER"];
