@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { HiDownload, HiEye, HiArrowRight, HiCode } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 import project1 from "../../assets/bookCourier.png";
-import project2 from "../../assets/food.png";
-import project3 from "../../assets/project-3.png";
+import project2 from "../../assets/zap-shift.png";
+import project3 from "../../assets/next-js.png";
 import Container from "../Container";
 
 const Project = () => {
@@ -13,33 +13,33 @@ const Project = () => {
       id: 1,
       title: "BookCourier E-commerce",
       description:
-        "A fast and responsive e-commerce platform with a focus on seamless UI/UX and efficient product delivery management.",
+        "A full-stack book delivery web application where users can browse books, place orders, and track deliveries through a smooth and responsive interface.",
       image: project1,
-      tags: ["React", "Tailwind", "NodeJS"],
+      tags: ["React", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
       backendLink: "https://github.com/ismailhossain-dev/backend.git",
       frontendLink: "https://github.com/ismailhossain-dev/frontend.git",
       liveLink: "https://bookcourier-project.netlify.app",
     },
     {
       id: 2,
-      title: "FoodMood – Premium Food",
+      title: "ZapShift E-commerce",
       description:
-        "A premium food delivery experience featuring dynamic menu categories and optimized checkout flow for enthusiasts.",
+        "Zap Shift Delivery is a fast and responsive delivery service web application designed to provide a smooth and efficient user experience. The platform allows users to explore delivery services, place requests, and manage their deliveries easily through a modern and intuitive interface.",
       image: project2,
-      tags: ["React", "Node.js", "Tailwind"],
-      backendLink: "https://github.com/ismailhossain-dev/assignment-10-server-project.git",
-      frontendLink: "https://github.com/ismailhossain-dev/assignment-10-client-local-food.git",
-      liveLink: "https://assignment-10-food-lover.netlify.app",
+      tags: ["React", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
+      backendLink: "https://github.com/ismailhossain-dev/zap-shift-backend.git",
+      frontendLink: "https://github.com/ismailhossain-dev/zap-shift-client.git",
+      liveLink: "https://zap-shift-client-five.vercel.app",
     },
     {
       id: 3,
-      title: "GameVault Platform",
+      title: "Bike E-Commerce ",
       description:
-        "An immersive gaming platform with a dark-themed aesthetic, interactive cards, and high-performance layouts.",
+        "An online bike store where users can browse different bikes, view details, add to cart, and make purchases with a smooth and responsive interface.",
       image: project3,
-      tags: ["React", "Firebase", "Tailwind"],
-      frontendLink: "https://github.com/ismailhossain-dev/Assignment-9.git",
-      liveLink: "https://assingment-9.netlify.app",
+      tags: ["React", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
+      serverLink: "https://github.com/ismailhossain-dev/next-js-motorcycle-project.git",
+      liveLink: "https://next-js-bike-project-bd.vercel.app",
     },
   ];
 
