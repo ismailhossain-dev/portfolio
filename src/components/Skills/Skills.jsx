@@ -18,7 +18,6 @@ import {
   SiStripe,
   SiNpm,
   SiAxios,
-  SiRedux,
 } from "react-icons/si";
 import { TbBrandHtml5, TbBrandCss3 } from "react-icons/tb";
 import Container from "../Container";
@@ -30,7 +29,7 @@ const ALL_SKILLS = [
   { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
   { name: "MongoDB", icon: SiMongodb, color: "text-[#47A248]" },
   { name: "Express", icon: SiExpress, color: "text-slate-400" },
-  { name: "Redux", icon: SiRedux, color: "text-[#764ABC]" },
+
   { name: "Tailwind", icon: SiTailwindcss, color: "text-[#06B6D4]" },
   { name: "Firebase", icon: SiFirebase, color: "text-[#FFCA28]" },
   { name: "GitHub", icon: SiGithub, color: "text-white" },

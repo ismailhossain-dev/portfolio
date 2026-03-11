@@ -6,6 +6,7 @@ import { SiMongodb, SiTailwindcss } from "react-icons/si";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import myImg from "../../assets/myImage.jpg";
 import Container from "../Container";
+import resume from "../../assets/Resume-Mohammad-Ismail Hossain.pdf";
 
 // Constants moved outside to prevent unnecessary re-renders
 const ROLES = ["MERN STACK DEVELOPER", "FRONTEND ENGINEER", "PROBLEM SOLVER"];
@@ -68,7 +69,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="py-20 px-4 md:py-32 relative overflow-hidden bg-[#020617] bg-[radial-gradient(circle_at_50%_50%,#0f172a_0%,#020617_100%)] text-white">
+    <div className="py-10 px-4 md:py-32 relative overflow-hidden bg-[#020617] bg-[radial-gradient(circle_at_50%_50%,#0f172a_0%,#020617_100%)] text-white">
       <Container>
         <section
           className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-30 overflow-hidden  dark:bg-[#020617] transition-colors duration-500 cursor-none  "
@@ -148,7 +149,7 @@ const Hero = () => {
                 variants={itemVariants}
                 className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
               >
-                <a href="/resume.pdf" download="Sabbir_Resume.pdf">
+                <a href={resume} download="Mohammad Ismail Hossain Resume">
                   <button className="group relative px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg">
                     <span className="relative z-10 flex items-center gap-2">
                       Download CV{" "}

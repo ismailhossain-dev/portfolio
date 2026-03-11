@@ -5,16 +5,8 @@ import sabbirImage from "../../assets/sabbir.jpg";
 import { HiDownload } from "react-icons/hi";
 
 const AboutMe = () => {
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-  };
-
   return (
-    <section
-      id="about"
-      className="py-20 md:py-32 px-4 lg:px-8 relative overflow-hidden bg-[#020617]"
-    >
+    <section id="about" className="py-10 px-4 lg:px-8 relative overflow-hidden bg-[#020617]">
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
