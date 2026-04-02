@@ -75,11 +75,8 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
                 onClick={() => handleNavLinkClick("Home")}
                 className="flex items-center gap-2 group"
               >
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white transition-all group-hover:bg-blue-500 shadow-lg shadow-blue-900/20">
-                  I
-                </div>
-                <span className="text-lg font-bold tracking-tight text-white hidden sm:block">
-                  ISMAIL<span className="text-blue-500">.</span>
+                <span className="text-lg font-bold tracking-tight text-white  sm:block">
+                  ISMAIL<span className="text-blue-500"></span>
                 </span>
               </a>
 
@@ -118,7 +115,7 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
                   onClick={() => handleNavLinkClick("Contact")}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="hidden md:flex items-center gap-2 bg-white text-black px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-blue-50 transition-all shadow-xl"
+                  className="hidden md:flex items-center gap-2 bg-blue-500 text-black px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-blue-600 transition-all shadow-xl text-white"
                 >
                   Hire Me
                 </motion.a>

@@ -115,7 +115,7 @@ const AboutMe = () => {
             className="flex flex-wrap items-center justify-center lg:justify-start gap-5"
           >
             <a
-              href="/resume.pdf"
+              href="https://docs.google.com/document/d/1jvSNWP_if6ym5-fyC5wej46aEg2tn7j49cQXx66aDWY/edit?usp=sharing"
               target="_blank"
               className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
             >

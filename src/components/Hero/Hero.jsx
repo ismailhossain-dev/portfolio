@@ -98,7 +98,7 @@ const Hero = () => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-5"
             >
               <a
-                href="/resume.pdf"
+                href="https://docs.google.com/document/d/1jvSNWP_if6ym5-fyC5wej46aEg2tn7j49cQXx66aDWY/edit?usp=sharing"
                 target="_blank"
                 className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
               >
@@ -153,9 +153,9 @@ const Hero = () => {
 
               {/* Stats/Experience Badge - কোম্পানি এগুলো বেশি নোটিস করে */}
               <div className="absolute -bottom-6 -left-6 bg-slate-900 border border-slate-800 p-4 rounded-xl shadow-xl">
-                <p className="text-blue-500 font-bold text-2xl">1+</p>
+                <p className="text-blue-500 font-bold text-2xl">6+</p>
                 <p className="text-slate-400 text-xs uppercase tracking-tighter">
-                  Years of Experience
+                  Month of Experience
                 </p>
               </div>
             </div>
