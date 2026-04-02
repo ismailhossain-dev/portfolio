@@ -1,8 +1,10 @@
 import React from "react";
-import { Award, Headphones, Download, ArrowRight, Sparkles, Code2 } from "lucide-react";
+import { Award, ArrowRight, Code2 } from "lucide-react";
 import { motion } from "framer-motion"; // Scroll animation er jonno
 import sabbirImage from "../../assets/sabbir.jpg";
 import { HiDownload } from "react-icons/hi";
+import { FaDebian } from "react-icons/fa6";
+import { FiArrowUpRight, FiSend } from "react-icons/fi";
 
 const AboutMe = () => {
   return (
@@ -65,21 +67,6 @@ const AboutMe = () => {
                 </p>
               </div>
             </motion.div>
-
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-slate-900/40 backdrop-blur-xl border border-white/5 p-6 rounded-[2rem] flex items-center gap-5 group hover:border-indigo-500/40 transition-all shadow-xl"
-            >
-              <div className="bg-purple-500/10 p-4 rounded-2xl text-purple-500 group-hover:bg-purple-600 group-hover:text-white transition-all">
-                <Headphones size={28} />
-              </div>
-              <div>
-                <h3 className="text-white font-bold text-lg tracking-wide">Support</h3>
-                <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">
-                  Online 24/7
-                </p>
-              </div>
-            </motion.div>
           </div>
 
           {/* Bio Content Card */}
@@ -123,40 +110,24 @@ const AboutMe = () => {
 
           {/* Action Buttons */}
 
-          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-            <motion.a
+          <motion.div
+            variants={FaDebian}
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-5"
+          >
+            <a
               href="/resume.pdf"
-              download="Sabbir_Resume.pdf"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative w-full sm:w-auto px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg flex items-center justify-center"
+              target="_blank"
+              className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Download CV{" "}
-                <HiDownload
-                  className="group-hover:translate-y-0.5 transition-transform"
-                  size={18}
-                />
-              </span>
-
-              {/* Blue Hover Slide Up Effect */}
-              <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
-            </motion.a>
-
-            {/* Let's Talk Button (আগের স্টাইল) */}
-            <motion.a
+              See Resume <FiArrowUpRight />
+            </a>
+            <a
               href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-slate-800/40 hover:bg-slate-800 border border-white/10 hover:border-indigo-500/40 text-white px-10 py-3.5 rounded-xl font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-all group"
+              className="px-8 py-3.5 border border-slate-700 hover:border-blue-500 text-white rounded-lg font-bold transition-all flex items-center gap-2"
             >
-              Let's Talk
-              <ArrowRight
-                size={20}
-                className="text-indigo-500 group-hover:translate-x-2 transition-transform"
-              />
-            </motion.a>
-          </div>
+              Contact Me <FiSend />
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

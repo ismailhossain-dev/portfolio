@@ -33,12 +33,12 @@ const Project = () => {
     },
     {
       id: 3,
-      title: "Bike E-Commerce ",
+      title: "Bike E-Commerce",
       description:
         "An online bike store where users can browse different bikes, view details, add to cart, and make purchases with a smooth and responsive interface.",
       image: project3,
       tags: ["React", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
-      serverLink: "https://github.com/ismailhossain-dev/next-js-motorcycle-project.git",
+      backendLink: "https://github.com/ismailhossain-dev/next-js-motorcycle-project.git",
       liveLink: "https://next-js-bike-project-bd.vercel.app",
     },
   ];
@@ -98,15 +98,18 @@ const Project = () => {
                         <HiEye size={18} /> Live Demo
                       </a>
                       <div className="flex gap-2">
-                        <a
-                          href={project.frontendLink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="p-2.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all border border-slate-700 shadow-xl"
-                          title="Frontend Code"
-                        >
-                          <FaGithub size={20} />
-                        </a>
+                        {project.frontendLink && (
+                          <a
+                            href={project.frontendLink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="p-2.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all border border-slate-700 shadow-xl"
+                            title="Frontend Code"
+                          >
+                            <FaGithub size={20} />
+                          </a>
+                        )}
+
                         {project.backendLink && (
                           <a
                             href={project.backendLink}

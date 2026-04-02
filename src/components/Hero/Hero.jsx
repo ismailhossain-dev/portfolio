@@ -1,22 +1,19 @@
-import React, { useEffect, useMemo } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
-import { HiDownload, HiChatAlt2 } from "react-icons/hi";
-import { FaGithub, FaLinkedinIn, FaFacebookF, FaTwitter, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss } from "react-icons/si";
+import React from "react";
+import { motion } from "framer-motion";
+import { FiArrowUpRight, FiSend } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import myImg from "../../assets/myImage.jpg";
 import Container from "../Container";
-import resume from "../../assets/Resume-Mohammad-Ismail-Hossain.pdf";
 
-// Constants moved outside to prevent unnecessary re-renders
-const ROLES = ["MERN STACK DEVELOPER", "FRONTEND ENGINEER", "PROBLEM SOLVER"];
+const ROLES = ["MERN Stack Developer", "Frontend Developer"];
 
 const SOCIAL_LINKS = [
   {
     icon: <FaGithub />,
     href: "https://github.com/ismailhossain-dev",
     label: "Github",
-    color: "hover:text-[#333]",
+    color: "hover:text-white",
   },
   {
     icon: <FaLinkedinIn />,
@@ -37,189 +34,136 @@ const Hero = () => {
     words: ROLES,
     loop: true,
     delaySpeed: 2000,
-    typeSpeed: 70,
-    deleteSpeed: 50,
   });
 
-  // Mouse Tracking Logic
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 150 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      mouseX.set(e.clientX - 16);
-      mouseY.set(e.clientY - 16);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Animation Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
-  };
-
-  const itemVariants = {
+  // সিম্পল এবং ফাস্ট অ্যানিমেশন ভেরিয়েন্ট
+  const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   return (
-    <div className="py-10 px-4 md:py-32 relative overflow-hidden bg-[#020617] bg-[radial-gradient(circle_at_50%_50%,#0f172a_0%,#020617_100%)] text-white">
+    <section className="relative min-h-[90vh] flex items-center bg-[#020617] py-16 overflow-hidden">
+      {/* Background - গ্রিড ইফেক্ট যা দ্রুত লোড হয় */}
+      <div
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          backgroundImage: `radial-gradient(#1e293b 1px, transparent 1px)`,
+          backgroundSize: "30px 30px",
+        }}
+      />
+
       <Container>
-        <section
-          className="relative min-h-screen flex items-center justify-center px-6 md:px-16 py-30 overflow-hidden  dark:bg-[#020617] transition-colors duration-500 cursor-none  "
-          id="#"
-        >
-          {/* Custom Cursor */}
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Content */}
           <motion.div
-            className="fixed top-0 left-0 w-8 h-8 rounded-full border border-blue-500/50 pointer-events-none z-[9999] hidden md:block"
-            style={{ x: cursorX, y: cursorY }}
-          />
-
-          {/* Background: Subtle Grid & Glow */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px]" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-[120px]" />
-          </div>
-
-          <motion.div
-            variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-16"
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+            className="text-center lg:text-left"
           >
-            {/* Left Content */}
-            <div className="flex-1 space-y-6 text-center lg:text-left order-2 lg:order-1">
-              <motion.div
-                variants={itemVariants}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/5 border border-blue-100 dark:border-blue-500/20"
-              >
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 ">
-                  Available for Hire
-                </span>
-              </motion.div>
-
-              <motion.div variants={itemVariants} className="space-y-2">
-                <h2 className="text-lg md:text-xl font-medium text-white dark:text-slate-400">
-                  Hello, I'm Ismail
-                </h2>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white dark:text-white leading-[1.1]">
-                  Expert in <br />
-                  <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl">
-                    {text}
-                  </span>
-                  <Cursor cursorStyle="|" />
-                </h1>
-              </motion.div>
-
-              <motion.p
-                variants={itemVariants}
-                className="text-base md:text-lg text-white dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed"
-              >
-                I craft high-performance web applications using the
-                <span className="text-blue-500 dark:text-white font-semibold"> MERN Stack</span>.
-                Focused on building clean, scalable, and user-centric digital experiences.
-              </motion.p>
-
-              {/* Social Links - Responsive & Integrated */}
-              <motion.div
-                variants={itemVariants}
-                className="flex items-center justify-center lg:justify-start gap-5 pt-2"
-              >
-                {SOCIAL_LINKS.map((link, i) => (
-                  <a
-                    key={i}
-                    href={link.href}
-                    className={`text-xl text-slate-400 transition-all duration-300 ${link.color} hover:-translate-y-1`}
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </motion.div>
-
-              {/* Action Buttons */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
-              >
-                <a href={resume} download="Mohammad Ismail Hossain Resume">
-                  <button className="group relative px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold overflow-hidden transition-all shadow-lg">
-                    <span className="relative z-10 flex items-center gap-2">
-                      Download CV{" "}
-                      <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
-                  </button>
-                </a>
-                <button className="px-8 py-3.5 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all text-white dark:text-slate-300">
-                  <a href="contact">Let's Talk</a>
-                </button>
-              </motion.div>
-            </div>
-
-            {/* Right Content: Image & Floating Elements */}
             <motion.div
-              variants={itemVariants}
-              className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2"
+              variants={fadeIn}
+              className="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20"
             >
-              <div className="relative">
-                {/* Tech Stack Bubbles (Senior Touch) */}
-                <TechBubble
-                  icon={<FaReact className="text-blue-400" />}
-                  className="top-0 -left-8"
-                  delay={0}
-                />
-                <TechBubble
-                  icon={<FaNodeJs className="text-green-500" />}
-                  className="bottom-20 -left-12"
-                  delay={1}
-                />
-                <TechBubble
-                  icon={<SiMongodb className="text-green-600" />}
-                  className="top-10 -right-8"
-                  delay={2}
-                />
-                <TechBubble
-                  icon={<SiTailwindcss className="text-cyan-400" />}
-                  className="bottom-10 -right-4"
-                  delay={1.5}
-                />
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+                🚀 Available for Hire
+              </span>
+            </motion.div>
 
-                {/* Main Image Container */}
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] p-3 border border-slate-200 dark:border-slate-800 rounded-[3rem] rotate-3 hover:rotate-0 transition-transform duration-500 bg-white dark:bg-slate-900 shadow-2xl">
-                  <div className="w-full h-full overflow-hidden rounded-[2.5rem] bg-slate-100 dark:bg-slate-800">
-                    <img
-                      src={myImg}
-                      alt="Ismail Portfolio"
-                      className="w-full h-full object-cover  transition-all duration-700 "
-                    />
-                  </div>
-                </div>
-              </div>
+            <motion.h1
+              variants={fadeIn}
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6"
+            >
+              I'm <span className="text-blue-500">Ismail Hossain</span>
+              <br />
+              <span className="text-slate-400 text-3xl md:text-5xl">
+                {text}
+                <Cursor cursorStyle="|" />
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={fadeIn}
+              className="text-slate-400 text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+            >
+              I build high-performance, accessible, and scalable web applications using the
+              <span className="text-white font-semibold"> MERN Stack</span>. Focused on clean code
+              and great UX.
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              variants={fadeIn}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-5"
+            >
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
+              >
+                See Resume <FiArrowUpRight />
+              </a>
+              <a
+                href="#contact"
+                className="px-8 py-3.5 border border-slate-700 hover:border-blue-500 text-white rounded-lg font-bold transition-all flex items-center gap-2"
+              >
+                Contact Me <FiSend />
+              </a>
+            </motion.div>
+
+            {/* Socials */}
+            <motion.div
+              variants={fadeIn}
+              className="flex gap-6 mt-10 justify-center lg:justify-start text-2xl text-slate-500"
+            >
+              {SOCIAL_LINKS.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${link.color} transition-colors`}
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </motion.div>
           </motion.div>
-        </section>
+
+          {/* Right: Clean Image Area */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            <div className="relative w-64 h-64 md:w-96 md:h-96">
+              {/* Decorative Circle */}
+              <div className="absolute inset-0 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
+
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-slate-800 shadow-2xl">
+                <img
+                  src={myImg}
+                  alt="Ismail"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+
+              {/* Stats/Experience Badge - কোম্পানি এগুলো বেশি নোটিস করে */}
+              <div className="absolute -bottom-6 -left-6 bg-slate-900 border border-slate-800 p-4 rounded-xl shadow-xl">
+                <p className="text-blue-500 font-bold text-2xl">1+</p>
+                <p className="text-slate-400 text-xs uppercase tracking-tighter">
+                  Years of Experience
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </Container>
-    </div>
+    </section>
   );
 };
-
-// Sub-component for Floating Icons
-const TechBubble = ({ icon, className, delay }) => (
-  <motion.div
-    animate={{ y: [0, -15, 0] }}
-    transition={{ duration: 4, repeat: Infinity, delay }}
-    className={`absolute z-20 p-3 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 text-2xl hidden sm:block ${className}`}
-  >
-    {icon}
-  </motion.div>
-);
 
 export default Hero;

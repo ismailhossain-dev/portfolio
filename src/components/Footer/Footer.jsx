@@ -65,16 +65,13 @@ const Footer = ({ navLinks }) => {
               </h4>
               <ul className="space-y-3 text-slate-400 text-sm font-medium">
                 <li className="hover:text-blue-400 transition-colors cursor-pointer">
-                  Full-stack Development
+                  MERN Development
                 </li>
                 <li className="hover:text-blue-400 transition-colors cursor-pointer">
                   Frontend Architecture
                 </li>
                 <li className="hover:text-blue-400 transition-colors cursor-pointer">
                   UI/UX Implementation
-                </li>
-                <li className="hover:text-blue-400 transition-colors cursor-pointer">
-                  API Design & Dev
                 </li>
               </ul>
             </div>
@@ -124,25 +121,6 @@ const Footer = ({ navLinks }) => {
                   <span className="text-sm">+880 1619408991</span>
                 </a>
               </div>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="pt-10 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-slate-500 text-[11px] font-medium tracking-wider flex items-center gap-2">
-              © 2026 ISMAIL • Built with <HiHeart className="text-red-500 animate-pulse" /> in
-              Bangladesh
-            </p>
-
-            <div className="flex gap-8">
-              {["Privacy", "Terms", "Cookies"].map((item) => (
-                <span
-                  key={item}
-                  className="text-slate-500 hover:text-white transition-colors text-[11px] font-medium uppercase tracking-widest cursor-pointer"
-                >
-                  {item}
-                </span>
-              ))}
             </div>
           </div>
         </div>

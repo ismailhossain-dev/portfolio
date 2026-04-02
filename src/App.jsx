@@ -5,11 +5,12 @@ import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
 
 import Project from "./components/Project/Project";
-import Contact from "./components/Contact/Contact";
+
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/Hero/LoadingScreen/LoadingScreen.JSX";
 import AboutMe from "./components/About/AboutMe";
 import Qualification from "./components/Qualification/Qualification";
+import SubContact from "./components/Contact/SubContact";
 
 // Importing Components
 
@@ -21,9 +22,9 @@ function App() {
   const navLinks = [
     { name: "Home", href: "#" },
     { name: "Tech Stack", href: "#skills" },
+    { name: "Project", href: "#project" },
     { name: "Qualification", href: "#qualification" },
 
-    { name: "Project", href: "#project" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -57,7 +58,7 @@ function App() {
     return <LoadingScreen />;
   }
   return (
-    <div className="selection:bg-blue-500 selection:text-white bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-500 font-sans scroll-smooth">
+    <div className="selection:bg-blue-500 selection:text-white bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-500 font-sans scroll-smooth ">
       <Navbar
         active={active}
         setActive={setActive}
@@ -74,7 +75,7 @@ function App() {
 
       <Qualification />
       <Project />
-      <Contact />
+      <SubContact />
       <Footer navLinks={navLinks} />
     </div>
   );
