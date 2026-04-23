@@ -61,7 +61,7 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
     <div className="pb-10">
       <header className="fixed top-0 left-0 right-0 z-[100] w-full ">
         <Container>
-          <div className="flex justify-center px-4 py-8 md:py-10">
+          <div className="flex justify-center px-4 ">
             <motion.nav
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

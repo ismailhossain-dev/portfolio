@@ -73,8 +73,8 @@ function App() {
       <AboutMe />
       <Skills />
 
-      <Qualification />
       <Project />
+      <Qualification />
       <SubContact />
       <Footer navLinks={navLinks} />
     </div>
