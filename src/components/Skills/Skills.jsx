@@ -70,7 +70,7 @@ const SkillCard = ({ name, icon: Icon, color, index }) => (
 
 const Skills = () => {
   return (
-    <div className="py-24 relative overflow-hidden bg-[#020617]">
+    <div className="py-24 relative overflow-hidden ">
       {/* Background Decorative Elements */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-600/5 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/5 blur-[140px] rounded-full" />

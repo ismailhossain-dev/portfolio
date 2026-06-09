@@ -14,6 +14,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true);
 
+    // EmailJS ক্রেডেনশিয়ালস
     const serviceId = "service_bwu65jv";
     const templateId = "template_4u1gi9i";
     const publicKey = "LWgtujEVFY6Gb6V9H";
@@ -46,12 +47,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#020617] bg-[radial-gradient(circle_at_50%_50%,#0f172a_0%,#020617_100%)]">
+    // এখানে মেইন ডিভ থেকে radial-gradient ব্যাকগ্রাউন্ড রিমুভ করে bg-transparent করা হয়েছে
+    <div className="bg-transparent">
       <Container>
         <section id="contact" className="py-20 px-4 md:py-32 relative overflow-hidden">
-          {/* Background Ambient Glows */}
-          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+          {/* এই সেকশনের নিজস্ব ব্যাকগ্রাউন্ড গ্লো ডিভগুলো ডিলিট করা হয়েছে যাতে গ্লোবাল ব্যাকগ্রাউন্ড প্রপারলি পায় */}
 
           <div className="max-w-6xl mx-auto relative z-10">
             {/* Header */}
@@ -81,7 +81,7 @@ const Contact = () => {
                 {/* Phone Card */}
                 <a
                   href="tel:01619408991"
-                  className="block p-8 rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 hover:border-indigo-500/40 transition-all group shadow-2xl"
+                  className="block p-8 rounded-[2.5rem] bg-slate-950/20 backdrop-blur-xl border border-slate-800/50 hover:border-indigo-500/40 transition-all group shadow-2xl"
                 >
                   <div className="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
                     <HiPhone size={28} />
@@ -93,20 +93,21 @@ const Contact = () => {
                 </a>
 
                 {/* Email Card */}
-                <div className="p-8 rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 hover:border-indigo-500/40 transition-all shadow-2xl group">
+                <div className="p-8 rounded-[2.5rem] bg-slate-950/20 backdrop-blur-xl border border-slate-800/50 hover:border-indigo-500/40 transition-all shadow-2xl group">
                   <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
                     <HiMail size={28} />
                   </div>
                   <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-1">
                     Email
                   </h3>
+                  {/* এখানে ইমেইল এড্রেসটি আপডেট করে 'ismail.dev69k@gmail.com' করা হয়েছে */}
                   <p className="text-lg font-bold text-white tracking-tighter break-words">
-                    programmarsabbir@gmail.com
+                    ismail.dev69k@gmail.com
                   </p>
                 </div>
 
                 {/* Social Card */}
-                <div className="p-8 rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 shadow-2xl">
+                <div className="p-8 rounded-[2.5rem] bg-slate-950/20 backdrop-blur-xl border border-slate-800/50 shadow-2xl">
                   <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">
                     Digital Presence
                   </h3>
@@ -152,7 +153,7 @@ const Contact = () => {
                 <form
                   ref={form}
                   onSubmit={sendEmail}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12 rounded-[3.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 shadow-2xl"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12 rounded-[3.5rem] bg-slate-950/20 backdrop-blur-xl border border-slate-800/50 shadow-2xl"
                 >
                   <input
                     type="text"

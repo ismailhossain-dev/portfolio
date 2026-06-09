@@ -6,7 +6,7 @@ import Container from "../Container";
 
 const Footer = ({ navLinks }) => {
   return (
-    <footer className="relative bg-[#020617] pt-24 pb-10 border-t border-slate-900 overflow-hidden">
+    <footer className="relative  pt-24 pb-10 border-t border-slate-900 overflow-hidden">
       {/* Background Subtle Glows */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
@@ -100,14 +100,14 @@ const Footer = ({ navLinks }) => {
               </h4>
               <div className="space-y-4">
                 <a
-                  href="mailto:programmarsabbir@gmail.com"
+                  href="mailto:ismail.dev69k@gmail.com"
                   className="flex items-center justify-center md:justify-start gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
                   <HiMail
                     className="text-blue-500 group-hover:scale-110 transition-transform"
                     size={20}
                   />
-                  <span className="text-sm">programmarsabbir@gmail.com</span>
+                  <span className="text-sm">ismail.dev69k@gmail.com</span>
                 </a>
                 <a
                   href="tel:01619408991"
