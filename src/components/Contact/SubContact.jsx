@@ -24,7 +24,7 @@ const SubContact = () => {
           title: "Message Sent!",
           text: "Thank you for reaching out. I'll get back to you soon!",
           confirmButtonColor: "#dc2626",
-          background: "#020617", // Swal background update
+          background: "#020617", 
           color: "#fff",
         });
         e.target.reset();
@@ -59,14 +59,10 @@ const SubContact = () => {
   return (
     <div
       id="contact"
-      // Ekhane bg-[#020617] set kora hoyeche
-<<<<<<< HEAD
-      className="min-h-screen  text-white py-20 px-6 relative overflow-hidden"
-=======
-      className="min-h-screen bg-[#020617] text-white py-20 px-6 relative overflow-hidden"
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
+      // এখানে কনফ্লিক্ট মার্কার এবং bg-[#020617] রিমুভ করে দিয়েছি
+      className="min-h-screen text-white py-20 px-6 relative overflow-hidden"
     >
-      {/* Background Glows - Red-er poriborte Indigo/Blue glow use kora hoyeche background-er sathe match korte */}
+      {/* Background Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-900/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -112,7 +108,7 @@ const SubContact = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2 ml-1">Email</label>
                 <input
-                  type="email"
+                  type="type"
                   name="user_email"
                   required
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 ring-red-600/50 transition-all placeholder:text-gray-600 text-white"
@@ -159,11 +155,8 @@ const SubContact = () => {
           {/* Right Column: Info & Socials */}
           <motion.div variants={itemVariants} className="flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-<<<<<<< HEAD
+              {/* ইমেইলটি সফলভাবে পরিবর্তন করে দেওয়া হয়েছে */}
               <ContactCard icon={<Mail />} title="Email Me" detail="ismail.dev69k@gmail.com" />
-=======
-              <ContactCard icon={<Mail />} title="Email Me" detail="programmarsabbir@gmail.com" />
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
               <ContactCard icon={<Phone />} title="Call / WhatsApp" detail="+880 1619408991" />
               <ContactCard icon={<MapPin />} title="Location" detail="Rangamati, Bangladesh" />
             </div>
@@ -208,7 +201,7 @@ const SubContact = () => {
 const ContactCard = ({ icon, title, detail }) => (
   <motion.div
     whileHover={{ x: 10 }}
-    className="flex items-center p-6 bg-white/5 border border-white/10 rounded-[1.5rem] group  transition-all duration-300 shadow-xl"
+    className="flex items-center p-6 bg-white/5 border border-white/10 rounded-[1.5rem] group transition-all duration-300 shadow-xl"
   >
     <div className="p-4 bg-blue-500 rounded-xl mr-6 group-hover:text-white transition-all duration-300">
       {icon}

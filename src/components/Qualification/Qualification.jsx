@@ -6,11 +6,7 @@ const Qualification = () => {
   const education = [
     {
       title: "H.S.C (Class 12)",
-<<<<<<< HEAD
       institute: "Kachalong Govt.High School",
-=======
-      institute: "Kachalong Govt.High School ",
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
       duration: "2023 - Present",
       desc: "Currently pursuing Higher Secondary Certificate. Focusing on core subjects and skill development.",
     },
@@ -35,23 +31,11 @@ const Qualification = () => {
   ];
 
   return (
-<<<<<<< HEAD
-    // এখানে ব্যাকগ্রাউন্ড রিমুভ করে bg-transparent করা হয়েছে যাতে গ্লোবাল ব্যাকগ্রাউন্ডটি দেখা যায়
+    // এখানে ব্যাকগ্রাউন্ড রিমুভ করে bg-transparent করা হয়েছে যাতে গ্লোবাল ব্যাকগ্রাউন্ডটি দেখা যায়
     <section
       id="qualification"
       className="py-20 px-4 md:py-32 relative overflow-hidden bg-transparent"
     >
-      {/* এই সেকশনের নিজস্ব ব্যাকগ্রাউন্ড গ্লো ডিভগুলো ডিলিট করা হয়েছে */}
-=======
-    <section
-      id="qualification"
-      className="py-20 px-4 md:py-32 relative overflow-hidden bg-[#020617] bg-[radial-gradient(circle_at_50%_50%,#0f172a_0%,#020617_100%)]"
-    >
-      {/* Background Glows */}
-      <div className="absolute top-1/3 -left-24 w-80 h-80 bg-indigo-600/10 rounded-full blur-[120px]"></div>
-      <div className="absolute bottom-1/3 -right-24 w-80 h-80 bg-purple-600/10 rounded-full blur-[120px]"></div>
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
-
       {/* Header Section */}
       <div className="text-center mb-20 relative z-10">
         <motion.div
@@ -73,11 +57,7 @@ const Qualification = () => {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Label Container */}
         <div className="flex justify-center mb-20">
-<<<<<<< HEAD
           <div className="bg-slate-950/40 backdrop-blur-md border border-white/10 px-10 py-4 rounded-3xl flex items-center gap-4 shadow-2xl">
-=======
-          <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 px-10 py-4 rounded-3xl flex items-center gap-4 shadow-2xl">
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
             <GraduationCap className="text-indigo-500 w-6 h-6" />
             <span className="text-white font-black tracking-[0.2em] uppercase text-xs md:text-sm">
               Educational Journey
@@ -104,13 +84,9 @@ const Qualification = () => {
               >
                 {/* Content Card */}
                 <div className="w-full md:w-[46%] pl-16 md:pl-0">
-<<<<<<< HEAD
-                  {/* bg-slate-900/40 কে আরও একটু ট্রান্সপারেন্ট (bg-slate-950/20) করা হয়েছে গ্লোবাল থিমের সাথে ম্যাচ করানোর জন্য */}
+                  {/* bg-slate-900/40 কে আরও একটু ট্রান্সপারেন্ট (bg-slate-950/20) করা হয়েছে গ্লোবাল থিমের সাথে ম্যাচ করানোর জন্য */}
                   <div className="group relative p-6 md:p-8 rounded-[2.5rem] bg-slate-950/20 border border-slate-800/50 hover:border-indigo-500/40 transition-all duration-500 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
                     
-=======
-                  <div className="group relative p-6 md:p-8 rounded-[2.5rem] bg-slate-900/40 border border-white/5 hover:border-indigo-500/40 transition-all duration-500 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
                     {/* Duration Badge */}
                     <div
                       className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}
@@ -140,11 +116,7 @@ const Qualification = () => {
                     </p>
 
                     <p
-<<<<<<< HEAD
                       className={`text-slate-400/80 text-xs md:text-sm leading-relaxed font-medium ${
-=======
-                      className={`text-slate-500 text-xs md:text-sm leading-relaxed font-medium ${
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
                         index % 2 === 0 ? "md:text-left" : "md:text-right"
                       }`}
                     >
@@ -160,10 +132,7 @@ const Qualification = () => {
                 <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center">
                   <div className="relative group/node">
                     <div className="absolute inset-0 bg-indigo-500 rounded-full blur-md opacity-40 group-hover/node:opacity-100 animate-pulse transition-opacity"></div>
-<<<<<<< HEAD
-                    {/* বর্ডার কালার থিমের সাথে মিল রেখে slate-950 করা হয়েছে */}
-=======
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
+                    {/* বর্ডার কালার থিমের সাথে মিল রেখে slate-950 করা হয়েছে */}
                     <div className="relative w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-950 border-[3px] border-indigo-600 z-10 group-hover/node:scale-125 group-hover/node:bg-indigo-600 transition-all duration-300"></div>
                   </div>
                 </div>
@@ -179,8 +148,4 @@ const Qualification = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Qualification;
-=======
-export default Qualification;
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b

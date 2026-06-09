@@ -1,20 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiHeart, HiMail, HiPhone, HiArrowRight } from "react-icons/hi";
-<<<<<<< HEAD
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
-=======
-import { FaGithub, FaLinkedin, FaFacebook, FaDiscord } from "react-icons/fa";
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
 import Container from "../Container";
 
 const Footer = ({ navLinks }) => {
   return (
-<<<<<<< HEAD
-    <footer className="relative  pt-24 pb-10 border-t border-slate-900 overflow-hidden">
-=======
-    <footer className="relative bg-[#020617] pt-24 pb-10 border-t border-slate-900 overflow-hidden">
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
+    // এখানে গিটের সব কনফ্লিক্ট মার্কার এবং bg-[#020617] রিমুভ করে ট্রান্সপারেন্ট রাখা হয়েছে
+    <footer className="relative pt-24 pb-10 border-t border-slate-900 overflow-hidden">
       {/* Background Subtle Glows */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
@@ -51,10 +44,6 @@ const Footer = ({ navLinks }) => {
                     link: "https://web.facebook.com/md.sabbir.926093",
                     color: "hover:text-[#1877f2]",
                   },
-<<<<<<< HEAD
-=======
-                  { icon: FaDiscord, link: "#", color: "hover:text-[#5865F2]" },
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
                 ].map((social, i) => (
                   <a
                     key={i}
@@ -111,23 +100,16 @@ const Footer = ({ navLinks }) => {
                 Get In Touch
               </h4>
               <div className="space-y-4">
+                {/* ইমেইল লিঙ্কটি সফলভাবে আপডেট করা হয়েছে */}
                 <a
-<<<<<<< HEAD
                   href="mailto:ismail.dev69k@gmail.com"
-=======
-                  href="mailto:programmarsabbir@gmail.com"
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
                   className="flex items-center justify-center md:justify-start gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
                   <HiMail
                     className="text-blue-500 group-hover:scale-110 transition-transform"
                     size={20}
                   />
-<<<<<<< HEAD
                   <span className="text-sm">ismail.dev69k@gmail.com</span>
-=======
-                  <span className="text-sm">programmarsabbir@gmail.com</span>
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
                 </a>
                 <a
                   href="tel:01619408991"

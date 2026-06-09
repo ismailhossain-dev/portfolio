@@ -8,11 +8,8 @@ import { FiArrowUpRight, FiSend } from "react-icons/fi";
 
 const AboutMe = () => {
   return (
-<<<<<<< HEAD
-    <section id="about" className="py-10 px-4 lg:px-8 relative overflow-hidden ">
-=======
-    <section id="about" className="py-10 px-4 lg:px-8 relative overflow-hidden bg-[#020617]">
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
+    // এখানে গিটের সব কনফ্লিক্ট মার্কার এবং bg-[#020617] রিমুভ করে আপনার ফ্রেশ ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড রাখা হয়েছে
+    <section id="about" className="py-10 px-4 lg:px-8 relative overflow-hidden">
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -91,7 +88,7 @@ const AboutMe = () => {
                 with hands-on experience in building modern and responsive web applications. I
                 specialize in{" "}
                 <span className="text-indigo-400 font-bold italic tracking-wide">
-                  React.js,Next.js, Node.js, Express.js, and MongoDB
+                  React.js, Next.js, Node.js, Express.js, and MongoDB
                 </span>
                 .
               </p>
@@ -113,7 +110,6 @@ const AboutMe = () => {
           </motion.div>
 
           {/* Action Buttons */}
-
           <motion.div
             variants={FaDebian}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-5"
@@ -121,6 +117,7 @@ const AboutMe = () => {
             <a
               href="https://docs.google.com/document/d/1-1w49whhg-f-UDQb3x1pbcSqaEJMQZwECEk7LrgPNb8/edit?usp=sharing"
               target="_blank"
+              rel="noreferrer"
               className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
             >
               View Resume <FiArrowUpRight />

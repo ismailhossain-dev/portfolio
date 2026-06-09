@@ -70,11 +70,8 @@ const SkillCard = ({ name, icon: Icon, color, index }) => (
 
 const Skills = () => {
   return (
-<<<<<<< HEAD
-    <div className="py-24 relative overflow-hidden ">
-=======
-    <div className="py-24 relative overflow-hidden bg-[#020617]">
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
+    // এখানে গিটের সব কনফ্লিক্ট মার্কার সরিয়ে আপনার ফ্রেশ ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড রাখা হয়েছে
+    <div className="py-24 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-600/5 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/5 blur-[140px] rounded-full" />
@@ -98,7 +95,7 @@ const Skills = () => {
               </p>
             </div>
 
-            {/* Grid Layout - 1 Row on Mobile, Grid on Larger */}
+            {/* Grid Layout */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
               {ALL_SKILLS.map((skill, index) => (
                 <SkillCard key={skill.name} {...skill} index={index} />
