@@ -3,13 +3,24 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
+<<<<<<< HEAD
 import Project from "./components/Project/Project";
+=======
+
+import Project from "./components/Project/Project";
+
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/Hero/LoadingScreen/LoadingScreen.JSX";
 import AboutMe from "./components/About/AboutMe";
 import Qualification from "./components/Qualification/Qualification";
 import SubContact from "./components/Contact/SubContact";
 
+<<<<<<< HEAD
+=======
+// Importing Components
+
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
 function App() {
   const [active, setActive] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +31,10 @@ function App() {
     { name: "Tech Stack", href: "#skills" },
     { name: "Project", href: "#project" },
     { name: "Qualification", href: "#qualification" },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
     { name: "Contact", href: "#contact" },
   ];
 
@@ -28,7 +43,11 @@ function App() {
     else document.documentElement.classList.remove("dark");
   }, [darkMode]);
 
+<<<<<<< HEAD
   // Loading work
+=======
+  //Loading work
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,6 +63,10 @@ function App() {
       }, 100);
     } else {
       window.addEventListener("load", handleLoad);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
       return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
@@ -51,6 +74,7 @@ function App() {
   if (loading) {
     return <LoadingScreen />;
   }
+<<<<<<< HEAD
 
   //ekane background ta use hoyche
   return (
@@ -89,8 +113,34 @@ function App() {
         <SubContact />
         <Footer navLinks={navLinks} />
       </div>
+=======
+  return (
+    <div className="selection:bg-blue-500 selection:text-white bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-500 font-sans scroll-smooth ">
+      <Navbar
+        active={active}
+        setActive={setActive}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        navLinks={navLinks}
+      />
+
+      <Hero />
+      <AboutMe />
+      <Skills />
+
+      <Qualification />
+      <Project />
+      <SubContact />
+      <Footer navLinks={navLinks} />
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
     </div>
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b

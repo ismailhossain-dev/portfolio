@@ -44,7 +44,11 @@ const Project = () => {
   ];
 
   return (
+<<<<<<< HEAD
     <div className="py-24 relative overflow-hidden ">
+=======
+    <div className="py-24 relative overflow-hidden bg-[#020617]">
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px]" />

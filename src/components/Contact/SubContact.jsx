@@ -60,7 +60,11 @@ const SubContact = () => {
     <div
       id="contact"
       // Ekhane bg-[#020617] set kora hoyeche
+<<<<<<< HEAD
       className="min-h-screen  text-white py-20 px-6 relative overflow-hidden"
+=======
+      className="min-h-screen bg-[#020617] text-white py-20 px-6 relative overflow-hidden"
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
     >
       {/* Background Glows - Red-er poriborte Indigo/Blue glow use kora hoyeche background-er sathe match korte */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-900/20 rounded-full blur-[120px] pointer-events-none" />
@@ -155,7 +159,11 @@ const SubContact = () => {
           {/* Right Column: Info & Socials */}
           <motion.div variants={itemVariants} className="flex flex-col justify-between space-y-8">
             <div className="space-y-6">
+<<<<<<< HEAD
               <ContactCard icon={<Mail />} title="Email Me" detail="ismail.dev69k@gmail.com" />
+=======
+              <ContactCard icon={<Mail />} title="Email Me" detail="programmarsabbir@gmail.com" />
+>>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
               <ContactCard icon={<Phone />} title="Call / WhatsApp" detail="+880 1619408991" />
               <ContactCard icon={<MapPin />} title="Location" detail="Rangamati, Bangladesh" />
             </div>
