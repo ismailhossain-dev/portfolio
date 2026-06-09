@@ -1,8 +1,5 @@
 @import "tailwindcss";
-<<<<<<< HEAD
 
-
-
-/* background color  */
-=======
->>>>>>> 0968919d399e556c51f4dc06109d7978980e3f8b
+body{
+    @apply bg-[#030712]
+}

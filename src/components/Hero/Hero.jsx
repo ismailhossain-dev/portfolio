@@ -41,9 +41,10 @@ const Hero = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
+  // bg-[#020617]bg-[#020617]bg-[#030712]
   return (
     // গ্লোবাল ব্যাকগ্রাউন্ডের জন্য bg-transparent রাখা হয়েছে
-    <section className="relative min-h-screen flex items-center bg-transparent pt-28 pb-16 md:py-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center  pt-28 pb-16 md:py-24 overflow-hidden  bg-[#020617]">
       <Container>
         <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           

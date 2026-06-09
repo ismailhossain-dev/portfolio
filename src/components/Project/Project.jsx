@@ -45,7 +45,7 @@ const Project = () => {
 
   return (
     // গ্লোবাল থিমের সাথে সামঞ্জস্য রেখে bg-transparent রাখা হয়েছে
-    <div className="py-24 relative overflow-hidden bg-transparent">
+    <div className="py-24 relative overflow-hidden  bg-[#020617]">
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px]" />

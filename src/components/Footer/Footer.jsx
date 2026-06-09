@@ -7,7 +7,7 @@ import Container from "../Container";
 const Footer = ({ navLinks }) => {
   return (
     // এখানে গিটের সব কনফ্লিক্ট মার্কার এবং bg-[#020617] রিমুভ করে ট্রান্সপারেন্ট রাখা হয়েছে
-    <footer className="relative pt-24 pb-10 border-t border-slate-900 overflow-hidden">
+    <footer className="relative  bg-[#020617] pt-24 pb-10 border-t border-slate-900 overflow-hidden">
       {/* Background Subtle Glows */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />

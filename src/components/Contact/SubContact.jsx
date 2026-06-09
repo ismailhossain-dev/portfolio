@@ -60,7 +60,7 @@ const SubContact = () => {
     <div
       id="contact"
       // এখানে কনফ্লিক্ট মার্কার এবং bg-[#020617] রিমুভ করে দিয়েছি
-      className="min-h-screen text-white py-20 px-6 relative overflow-hidden"
+      className="min-h-screen text-white py-20 px-6 relative overflow-hidden bg-[#020617]"
     >
       {/* Background Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-900/20 rounded-full blur-[120px] pointer-events-none" />

@@ -34,7 +34,7 @@ const Qualification = () => {
     // এখানে ব্যাকগ্রাউন্ড রিমুভ করে bg-transparent করা হয়েছে যাতে গ্লোবাল ব্যাকগ্রাউন্ডটি দেখা যায়
     <section
       id="qualification"
-      className="py-20 px-4 md:py-32 relative overflow-hidden bg-transparent"
+      className="py-20 px-4 md:py-32 relative overflow-hidden bg-[#020617]"
     >
       {/* Header Section */}
       <div className="text-center mb-20 relative z-10">
