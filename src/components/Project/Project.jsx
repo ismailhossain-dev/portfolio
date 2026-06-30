@@ -37,7 +37,7 @@ const Project = () => {
       description:
         "An online bike store where users can browse different bikes, view details, add to cart, and make purchases with a smooth and responsive interface.",
       image: project3,
-      tags: ["React", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
+      tags: ["Next.js", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
       backendLink: "https://github.com/ismailhossain-dev/next-js-motorcycle-project.git",
       liveLink: "https://next-js-bike-project-bd.vercel.app",
     },
