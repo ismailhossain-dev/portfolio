@@ -18,7 +18,7 @@ const Project = () => {
       tags: ["React", "NodeJS", "Express.js", "Mongodb", "Tailwind"],
       backendLink: "https://github.com/ismailhossain-dev/backend.git",
       frontendLink: "https://github.com/ismailhossain-dev/frontend.git",
-      liveLink: "https://bookcourier-theta.vercel.app",
+      liveLink: "https://bookcourier12.vercel.app",
     },
     {
       id: 2,
