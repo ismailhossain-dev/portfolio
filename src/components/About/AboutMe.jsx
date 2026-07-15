@@ -22,8 +22,8 @@ const AboutMe = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16 md:mb-24"
       >
-        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase">
-          About <span className="text-indigo-500">Me</span>
+        <h2 className="text-4xl italic text-blue-500 md:text-6xl font-bold  tracking-tight">
+          About Me
         </h2>
         <div className="h-1.5 w-24 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mt-6 rounded-full"></div>
       </motion.div>
@@ -39,11 +39,11 @@ const AboutMe = () => {
         >
           <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 rounded-[3rem] blur-2xl group-hover:blur-3xl transition duration-700"></div>
 
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 xl:w-[420px] xl:h-[420px] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-700 group-hover:rotate-2">
+          <div className="relative w-full  sm:w-80 sm:h-100 xl:w-[420px] xl:h-[500px] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-700 ">
             <img
               src={sabbirImage}
               alt="Sabbir - MERN Developer"
-              className="w-full h-full object-cover transition duration-1000 group-hover:scale-110"
+              className="w-full h-full object-cover transition duration-1000 cursor-pointer"
             />
             {/* Glossy Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
@@ -64,7 +64,7 @@ const AboutMe = () => {
               <div>
                 <h3 className="text-white font-bold text-lg tracking-wide">Experience</h3>
                 <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">
-                  6+ Months Active
+                  8+ Months Active
                 </p>
               </div>
             </motion.div>
@@ -88,7 +88,7 @@ const AboutMe = () => {
                 with hands-on experience in building modern and responsive web applications. I
                 specialize in{" "}
                 <span className="text-indigo-400 font-bold italic tracking-wide">
-                  React.js, Next.js, Node.js, Express.js, and MongoDB
+                  React.js, Next.js,Tyescript, Node.js, Express.js, and MongoDB
                 </span>
                 .
               </p>

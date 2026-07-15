@@ -11,7 +11,7 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
     about: <User size={16} />,
     skills: <BiCodeAlt size={16} />,
     projects: <Code2 size={16} />,
-    qualification: <GraduationCap size={16} />,
+    // qualification: <GraduationCap size={16} />,
     contact: <MessageSquare size={16} />,
   };
 
@@ -90,9 +90,9 @@ const Navbar = ({ active, setActive, isOpen, setIsOpen, navLinks }) => {
               onClick={() => handleNavLinkClick("Home")}
               className="flex items-center gap-2 group relative z-[101]"
             >
-              <span className="text-xl font-black tracking-wider text-white">
-                ISMAIL<span className="text-blue-500">.</span>
-              </span>
+               <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-bold text-2xl">
+                  ISMAIL
+                </span>
             </a>
 
             {/* Desktop Navigation */}

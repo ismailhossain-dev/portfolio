@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { HiDownload, HiEye, HiArrowRight, HiCode } from "react-icons/hi";
+import { HiEye, HiArrowRight, HiCode } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 import project1 from "../../assets/bookCourier.png";
 import project2 from "../../assets/zap-shift.png";
@@ -44,8 +44,7 @@ const Project = () => {
   ];
 
   return (
-    // গ্লোবাল থিমের সাথে সামঞ্জস্য রেখে bg-transparent রাখা হয়েছে
-    <div className="py-24 relative overflow-hidden  bg-[#020617]">
+    <div className="py-24 relative overflow-hidden bg-[#020617]">
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px]" />
@@ -53,14 +52,14 @@ const Project = () => {
       <Container>
         <section id="project" className="relative z-10 px-4">
           <div className="max-w-7xl mx-auto">
-            {/* Header Section - Matches Skills Section */}
+            {/* Header Section */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
               <div className="space-y-4">
-                <h3 className="text-blue-500 font-mono tracking-tighter text-sm uppercase">
+                <h3 className="text-white font-mono tracking-tighter text-sm uppercase">
                   Selected Works
                 </h3>
-                <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-                  Featured <span className="text-slate-500">Projects</span>
+                <h2 className="text-4xl italic text-blue-500 md:text-6xl font-bold  tracking-tight">
+                  Featured Projects
                 </h2>
               </div>
               <p className="text-slate-400 max-w-sm text-sm md:text-base leading-relaxed border-l border-slate-800 pl-6">
@@ -80,16 +79,16 @@ const Project = () => {
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   className="group flex flex-col bg-slate-900/40 border border-slate-800/50 rounded-3xl overflow-hidden backdrop-blur-sm hover:bg-slate-800/40 transition-all duration-500"
                 >
-                  {/* Image Container with Custom Overlay */}
+                  {/* Image Container */}
                   <div className="relative h-64 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                     />
 
-                    {/* Dark Overlay on Hover */}
-                    <div className="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-[2px]">
+                    {/* Dark Overlay - Desktop এ হোভার হলে দেখাবে, মোবাইলে লজিক্যালি হাইড থাকবে */}
+                    <div className="hidden md:flex absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex-col items-center justify-center gap-3 backdrop-blur-[2px]">
                       <a
                         href={project.liveLink}
                         target="_blank"
@@ -139,7 +138,7 @@ const Project = () => {
                       ))}
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-3 md:group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
 
@@ -147,9 +146,43 @@ const Project = () => {
                       {project.description}
                     </p>
 
+                    {/* Mobile Buttons Layout - শুধুমাত্র মোবাইলে (md এর নিচে) দৃশ্যমান হবে */}
+                    <div className="flex flex-wrap gap-2 mb-6 md:hidden">
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-md"
+                      >
+                        <HiEye size={16} /> Live Demo
+                      </a>
+                      {project.frontendLink && (
+                        <a
+                          href={project.frontendLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-1.5 px-3 py-2 bg-slate-800 text-white rounded-xl border border-slate-700 text-xs"
+                        >
+                          <FaGithub size={16} /> Frontend
+                        </a>
+                      )}
+                      {project.backendLink && (
+                        <a
+                          href={project.backendLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-1.5 px-3 py-2 bg-slate-800 text-white rounded-xl border border-slate-700 text-xs"
+                        >
+                          <HiCode size={16} /> Backend
+                        </a>
+                      )}
+                    </div>
+
                     <div className="pt-4 border-t border-slate-800/50">
                       <a
                         href={project.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
                         className="inline-flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest group/link hover:text-blue-400 transition-colors"
                       >
                         View Project Detail

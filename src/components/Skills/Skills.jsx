@@ -5,6 +5,7 @@ import {
   SiReact,
   SiNextdotjs,
   SiJavascript,
+  SiTypescript, // TypeScript আইকন ইম্পোর্ট করা হয়েছে
   SiTailwindcss,
   SiMongodb,
   SiNodedotjs,
@@ -26,6 +27,7 @@ const ALL_SKILLS = [
   { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
   { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
   { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-[#3178C6]" }, // TypeScript ডেটা যুক্ত করা হয়েছে
   { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
   { name: "MongoDB", icon: SiMongodb, color: "text-[#47A248]" },
   { name: "Express", icon: SiExpress, color: "text-slate-400" },
@@ -52,7 +54,7 @@ const SkillCard = ({ name, icon: Icon, color, index }) => (
     viewport={{ once: true }}
     transition={{ delay: index * 0.05, duration: 0.5 }}
     whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.5)" }}
-    className="group relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm transition-all hover:bg-slate-800/40"
+    className="group relative flex flex-col items-center justify-center gap-4 p-3 rounded-2xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm transition-all hover:bg-slate-800/40"
   >
     {/* Subtle Glow Effect on Hover */}
     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -62,7 +64,7 @@ const SkillCard = ({ name, icon: Icon, color, index }) => (
         className={`text-4xl ${color} filter drop-shadow-sm group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all`}
       />
     </div>
-    <span className="relative z-10 text-[12px] font-medium text-slate-400 group-hover:text-white uppercase tracking-widest transition-colors">
+    <span className="relative z-10 text-[10px] font-medium text-slate-400 group-hover:text-white uppercase tracking-widest transition-colors">
       {name}
     </span>
   </motion.div>
@@ -70,7 +72,6 @@ const SkillCard = ({ name, icon: Icon, color, index }) => (
 
 const Skills = () => {
   return (
-    // এখানে গিটের সব কনফ্লিক্ট মার্কার সরিয়ে আপনার ফ্রেশ ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড রাখা হয়েছে
     <div className="py-24 relative overflow-hidden bg-[#020617]">
       {/* Background Decorative Elements */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-600/5 blur-[120px] rounded-full" />
@@ -82,11 +83,11 @@ const Skills = () => {
             {/* Header Section */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div className="space-y-4">
-                <h3 className="text-blue-500 font-mono tracking-tighter text-sm uppercase">
+                <h3 className="text-white font-mono tracking-tighter text-sm uppercase">
                   Technical Arsenal
                 </h3>
-                <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-                  Modern <span className="text-slate-500">Tech</span> Stack
+                <h2 className="text-4xl italic text-blue-500 md:text-6xl font-bold  tracking-tight">
+                  Modern Tech Stack
                 </h2>
               </div>
               <p className="text-slate-400 max-w-sm text-sm md:text-base leading-relaxed border-l border-slate-800 pl-6">
@@ -96,7 +97,7 @@ const Skills = () => {
             </div>
 
             {/* Grid Layout */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-5">
               {ALL_SKILLS.map((skill, index) => (
                 <SkillCard key={skill.name} {...skill} index={index} />
               ))}

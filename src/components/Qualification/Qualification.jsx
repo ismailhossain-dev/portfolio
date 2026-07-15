@@ -47,7 +47,7 @@ const Qualification = () => {
           <span className="flex items-center justify-center gap-2 text-indigo-400 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-4">
             <Sparkles size={14} className="animate-pulse" /> My Academic Path
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter">
             Quali<span className="text-indigo-500">fication</span>
           </h2>
           <div className="h-1.5 w-32 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mt-6 rounded-full"></div>

@@ -21,7 +21,7 @@ function App() {
     { name: "Home", href: "#" },
     { name: "Tech Stack", href: "#skills" },
     { name: "Project", href: "#project" },
-    { name: "Qualification", href: "#qualification" },
+    // { name: "Qualification", href: "#qualification" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -87,7 +87,7 @@ function App() {
         <AboutMe />
         <Skills />
         <Project />
-        <Qualification />
+        {/* <Qualification /> */}
         <SubContact />
         <Footer navLinks={navLinks} />
       </div>

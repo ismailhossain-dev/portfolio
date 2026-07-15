@@ -41,14 +41,12 @@ const Hero = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  // bg-[#020617]bg-[#020617]bg-[#030712]
   return (
-    // গ্লোবাল ব্যাকগ্রাউন্ডের জন্য bg-transparent রাখা হয়েছে
-    <section className="relative min-h-screen flex items-center  pt-28 pb-16 md:py-24 overflow-hidden  bg-[#020617]">
+    <section className="relative min-h-screen flex items-center pt-28 pb-16 md:py-24 overflow-hidden bg-[#020617]">
       <Container>
         <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left: Content (Spans 7 columns on large screens) */}
+          {/* Left: Content */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -132,40 +130,37 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right: Modern Framed Image (Spans 5 columns on large screens) */}
+          {/* Right: Full width on mobile, optimized to prevent head cutting */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center lg:justify-end lg:col-span-5 order-1 lg:order-2 mb-8 lg:mb-0"
+            className="flex justify-center lg:justify-end lg:col-span-5 order-1 lg:order-2 mb-8 lg:mb-0 w-full"
           >
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[360px] md:h-[360px] group">
+            <div className="relative w-full sm:max-w-[320px] md:max-w-[360px] lg:max-w-[380px] aspect-square group mx-[-16px] sm:mx-0">
               
               {/* Background Decorative Elements */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-40 transition-opacity duration-500" />
-              
-              {/* Spinning Accent Border */}
-              <div className="absolute -inset-3 rounded-[2rem] border-2 border-dashed border-slate-800/60 group-hover:border-blue-500/40 transition-colors duration-500 animate-[spin_60s_linear_infinite]" />
+              <div className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-40 transition-opacity duration-500" />
 
               {/* Main Image Container */}
-              <div className="relative w-full h-full rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
+              <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-y sm:border border-slate-800 bg-slate-900 shadow-2xl">
+                {/* কমেন্টটি সরিয়ে নেওয়া হয়েছে এরর দূর করার জন্য */}
                 <img
                   src={myImg}
                   alt="Ismail Hossain"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-1"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out "
                 />
-                {/* Overlay Gradient on Image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Status Card */}
-              <div className="absolute -bottom-4 -left-4 sm:-left-6 bg-slate-900/90 border border-slate-800/80 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                  <span className="text-blue-400 font-black text-lg sm:text-xl">6+</span>
+              <div className="absolute bottom-4 left-4 sm:-bottom-4 sm:-left-6 bg-slate-900/90 border border-slate-800/80 backdrop-blur-md p-2.5 sm:p-4 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                  <span className="text-blue-400 font-black text-base sm:text-xl">6+</span>
                 </div>
                 <div>
-                  <p className="text-white font-bold text-xs sm:text-sm tracking-wide">Months</p>
-                  <p className="text-slate-400 text-[10px] uppercase tracking-wider font-semibold">Experience</p>
+                  <p className="text-white font-bold text-[11px] sm:text-sm tracking-wide">Months</p>
+                  <p className="text-slate-400 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">Experience</p>
                 </div>
               </div>
 

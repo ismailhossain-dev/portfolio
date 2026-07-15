@@ -73,11 +73,11 @@ const SubContact = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight uppercase">
-            Let's <span className="text-red-600">Connect</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter">
+            Let's <span className="text-indigo-500">Connect</span>
           </h1>
-          <div className="h-1 w-20 bg-red-600 mx-auto mb-8 rounded-full"></div>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto font-medium">
+        
+          <p className="text-gray-400 text-lg max-w-xl mx-auto font-medium mt-5">
             Have a project in mind? Let's turn your vision into a digital reality.
           </p>
         </motion.div>
